@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhaani - Human-AI Collaborative Software Development</title>
+    <meta name="description" content="Dhaani combines human creativity with AI efficiency in a 2-step approach: design first, then code. Build modular software with human-in-the-loop control.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="logo.svg" alt="Dhaani Logo" class="logo">
+                <span class="logo-text">Dhaani</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#how-it-works" class="nav-link">How It Works</a>
+                <a href="#use-cases" class="nav-link">Use Cases</a>
+                <a href="#research" class="nav-link">Research</a>
+                <a href="#download" class="nav-link cta-link">Download</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Where Human Creativity Meets AI Efficiency
+                </h1>
+                <p class="hero-subtitle">
+                    Dhaani uses a revolutionary 2-step approach: design first, then code.<br>
+                    Combine your innovative solutions with AI's speed and knowledge to build<br>
+                    modular software with human-in-the-loop control.
+                </p>
+                <div class="hero-cta">
+                    <button class="btn-primary" onclick="trackDownload('hero')">
+                        Download Dhaani
+                    </button>
+                    <button class="btn-secondary" onclick="scrollToVideo()">
+                        Watch Demo
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">2-Step</span>
+                        <span class="stat-label">Process</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">Modular</span>
+                        <span class="stat-label">Design</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">Human-in-Loop</span>
+                        <span class="stat-label">Control</span>
+                    </div>
+                </div>
+            </div>
+            <div class="process-visual">
+                <div class="process-step">
+                    <div class="step-icon design">D</div>
+                    <div class="step-text">Design</div>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-step">
+                    <div class="step-icon code">C</div>
+                    <div class="step-text">Code</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Video Section -->
+    <section class="video-section" id="demo-video">
+        <div class="video-container">
+            <h2 class="section-title">See Dhaani in Action</h2>
+            <div class="video-wrapper">
+                <div class="video-placeholder">
+                    <div class="play-button" onclick="trackVideoClick()">
+                        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                            <circle cx="30" cy="30" r="30" fill="white" opacity="0.9"/>
+                            <path d="M22 18L42 30L22 42V18Z" fill="#0891b2"/>
+                        </svg>
+                    </div>
+                    <p class="video-text">Demo Video Coming Soon</p>
+                    <p class="video-subtext">Watch how quickly you can generate code for research and data science</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="features-container">
+            <h2 class="section-title">Why Dhaani?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3 class="feature-title">Human Creativity</h3>
+                    <p class="feature-desc">Your innovative solutions drive the development process. AI amplifies your ideas, not replaces them.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">AI Speed</h3>
+                    <p class="feature-desc">Leverage AI's vast knowledge and coding capabilities to build faster than ever before.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <h3 class="feature-title">Modular Design</h3>
+                    <p class="feature-desc">Change and enhance parts of your software without impacting other components.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3 class="feature-title">Living Documentation</h3>
+                    <p class="feature-desc">No documentation overhead. Your workflow becomes living documentation tied to your code.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">Incomplete Specifications</h3>
+                    <p class="feature-desc">AI excels at working with incomplete requirements, just like experienced developers.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3 class="feature-title">Broad Accessibility</h3>
+                    <p class="feature-desc">From low technical to high technical users - everyone can benefit from Dhaani.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="how-it-works-container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="process-flow">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Design Phase</h3>
+                        <p class="step-desc">You provide the creative input, innovative solutions, and design decisions. This is where human intuition and domain expertise shine.</p>
+                    </div>
+                </div>
+                <div class="process-arrow">
+                    <div class="arrow-line"></div>
+                    <div class="arrow-head"></div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Code Phase</h3>
+                        <p class="step-desc">AI takes your design and translates it into efficient, modular code. Fast execution with your creative vision intact.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="continuous-feedback">
+                <p class="feedback-text">
+                    <strong>Human-in-the-Loop:</strong> You maintain control throughout the process, 
+                    ensuring the final software matches your vision and requirements.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="use-cases" id="use-cases">
+        <div class="use-cases-container">
+            <h2 class="section-title">Perfect For</h2>
+            <div class="use-cases-grid">
+                <div class="use-case-card">
+                    <div class="use-case-icon">🔬</div>
+                    <h3 class="use-case-title">Scientific Workflows</h3>
+                    <p class="use-case-desc">Streamline data analysis, experiment automation, and research pipeline development.</p>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon">📊</div>
+                    <h3 class="use-case-title">Data Science</h3>
+                    <p class="use-case-desc">Build data processing pipelines, ML models, and analytical tools with ease.</p>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon">🤖</div>
+                    <h3 class="use-case-title">AI-ML Workflows</h3>
+                    <p class="use-case-desc">Develop machine learning applications and AI-powered solutions efficiently.</p>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon">🏆</div>
+                    <h3 class="use-case-title">Research Challenges</h3>
+                    <p class="use-case-desc">Tackle complex problems like the IPARC challenge with innovative approaches.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section class="research" id="research">
+        <div class="research-container">
+            <h2 class="section-title">Research & Credibility</h2>
+            <div class="research-content">
+                <div class="research-papers">
+                    <h3 class="research-subtitle">Published Papers</h3>
+                    <div class="paper-list">
+                        <a href="https://arxiv.org/abs/2503.14488" target="_blank" class="paper-link" onclick="trackPaperClick('2503.14488')">
+                            <div class="paper-info">
+                                <h4 class="paper-title">Dhaani: Human-AI Collaborative Software Development</h4>
+                                <p class="paper-desc">ArXiv preprint detailing the methodology and approach</p>
+                            </div>
+                            <div class="paper-arrow">→</div>
+                        </a>
+                        <a href="https://www.arxiv.org/abs/2506.13820" target="_blank" class="paper-link" onclick="trackPaperClick('2506.13820')">
+                            <div class="paper-info">
+                                <h4 class="paper-title">IPARC Challenge Solution</h4>
+                                <p class="paper-desc">Accepted paper at IJCLR conference</p>
+                            </div>
+                            <div class="paper-arrow">→</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="research-highlights">
+                    <div class="highlight-card">
+                        <h4 class="highlight-title">Conference Accepted</h4>
+                        <p class="highlight-desc">IJCLR Conference</p>
+                    </div>
+                    <div class="highlight-card">
+                        <h4 class="highlight-title">Challenge Solved</h4>
+                        <p class="highlight-desc">IPARC Challenge</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download" id="download">
+        <div class="download-container">
+            <h2 class="section-title">Download Dhaani</h2>
+            <p class="download-subtitle">Start building with human-AI collaboration today</p>
+            
+            <div class="download-requirements">
+                <h3 class="requirements-title">Requirements</h3>
+                <div class="requirements-list">
+                    <div class="requirement-item">
+                        <span class="requirement-icon">🐍</span>
+                        <span class="requirement-text">Python applications only</span>
+                    </div>
+                    <div class="requirement-item">
+                        <span class="requirement-icon">🔑</span>
+                        <span class="requirement-text">LLM API key or local Ollama installation</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="download-platforms">
+                <div class="platform-card" onclick="trackDownload('mac')">
+                    <div class="platform-icon">🍎</div>
+                    <h3 class="platform-name">macOS</h3>
+                    <button class="platform-btn">Download for Mac</button>
+                </div>
+                <div class="platform-card" onclick="trackDownload('windows')">
+                    <div class="platform-icon">🪟</div>
+                    <h3 class="platform-name">Windows</h3>
+                    <button class="platform-btn">Download for Windows</button>
+                </div>
+                <div class="platform-card" onclick="trackDownload('linux')">
+                    <div class="platform-icon">🐧</div>
+                    <h3 class="platform-name">Linux</h3>
+                    <button class="platform-btn">Download for Linux</button>
+                </div>
+            </div>
+
+            <div class="download-note">
+                <p class="note-text">
+                    <strong>Note:</strong> Dhaani is currently free for everyone to use. 
+                    Download and start building your next project today!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <h2 class="section-title">Get in Touch</h2>
+            <p class="contact-subtitle">Have questions or feedback? We'd love to hear from you.</p>
+            
+            <div class="contact-content">
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm" onsubmit="handleContactSubmit(event)">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" name="message" class="form-textarea" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="form-submit">Send Message</button>
+                    </form>
+                </div>
+                
+                <div class="about-author">
+                    <h3 class="author-title">About the Author</h3>
+                    <div class="author-info">
+                        <p class="author-desc">
+                            Dhaani was created by a researcher who realized that while AI excels at coding and speed, 
+                            the most innovative solutions come from human creativity. This led to the development of 
+                            a human-in-the-loop approach that combines the best of both worlds.
+                        </p>
+                        <div class="author-highlights">
+                            <div class="author-highlight">
+                                <span class="highlight-icon">🎓</span>
+                                <span class="highlight-text">PhD Researcher</span>
+                            </div>
+                            <div class="author-highlight">
+                                <span class="highlight-icon">🔬</span>
+                                <span class="highlight-text">Scientific Workflows Expert</span>
+                            </div>
+                            <div class="author-highlight">
+                                <span class="highlight-icon">🏆</span>
+                                <span class="highlight-text">Conference Published</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="logo.svg" alt="Dhaani Logo" class="footer-logo">
+                    <span class="footer-brand-text">Dhaani</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#features" class="footer-link">Features</a>
+                    <a href="#how-it-works" class="footer-link">How It Works</a>
+                    <a href="#use-cases" class="footer-link">Use Cases</a>
+                    <a href="#research" class="footer-link">Research</a>
+                    <a href="#download" class="footer-link">Download</a>
+                    <a href="#contact" class="footer-link">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    © 2024 Dhaani. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
