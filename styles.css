@@ -645,46 +645,41 @@ body {
 
 .download-requirements {
     margin-bottom: 4rem;
-    padding: 2rem;
-    background: var(--bg-primary);
-    border-radius: 1rem;
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--border-light);
 }
 
 .requirements-title {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 600;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     color: var(--text-primary);
+    text-align: center;
 }
 
 .requirements-list {
     display: flex;
     justify-content: center;
-    gap: 3rem;
-    flex-wrap: wrap;
+    gap: 1.5rem;
+    flex-wrap: nowrap;
 }
 
 .requirement-item {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    padding: 1.5rem 2rem;
-    background: var(--bg-secondary);
-    border-radius: 0.75rem;
-    box-shadow: var(--shadow-sm);
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    background: var(--bg-primary);
+    border-radius: 0.5rem;
     border: 1px solid var(--border-light);
 }
 
 .requirement-icon {
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .requirement-text {
     color: var(--text-primary);
-    font-weight: 500;
-    font-size: 1.1rem;
+    font-weight: 400;
+    font-size: 1rem;
 }
 
 .download-platforms {
@@ -692,36 +687,34 @@ body {
     justify-content: center;
     gap: 2rem;
     margin-bottom: 3rem;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 .platform-card {
     background: var(--bg-primary);
-    padding: 2.5rem 2rem;
-    border-radius: 1rem;
-    box-shadow: var(--shadow-md);
-    transition: all 0.3s ease;
+    padding: 2rem;
+    border-radius: 0.75rem;
     border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
     cursor: pointer;
-    min-width: 200px;
+    flex: 1;
+    min-width: 250px;
     text-align: center;
 }
 
 .platform-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-xl);
     border-color: var(--primary-teal);
 }
 
 .platform-icon {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
 }
 
 .platform-name {
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 600;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     color: var(--text-primary);
 }
 
@@ -729,18 +722,18 @@ body {
     background: var(--gradient-primary);
     color: white;
     border: none;
-    padding: 1rem 2rem;
-    border-radius: 0.75rem;
-    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
     width: 100%;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 .platform-btn:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-md);
 }
 
 .download-note {
@@ -1009,10 +1002,23 @@ body {
     .requirements-list {
         flex-direction: column;
         align-items: center;
+        gap: 1rem;
+    }
+    
+    .requirement-item {
+        width: 100%;
+        max-width: 300px;
     }
     
     .download-platforms {
-        grid-template-columns: 1fr;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+    }
+    
+    .platform-card {
+        min-width: auto;
+        width: 100%;
+        max-width: 300px;
     }
 }
 
