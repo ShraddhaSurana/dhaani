@@ -131,8 +131,23 @@ body {
     gap: 3rem;
 }
 
+.hero-tagline {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.tagline-highlight {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
 .hero-title {
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 1.5rem;
@@ -954,6 +969,10 @@ body {
         text-align: center;
     }
     
+    .hero-tagline {
+        font-size: 2rem;
+    }
+    
     .hero-title {
         font-size: 2.5rem;
     }
@@ -1023,8 +1042,12 @@ body {
 }
 
 @media (max-width: 480px) {
+    .hero-tagline {
+        font-size: 1.75rem;
+    }
+    
     .hero-title {
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
     
     .hero-subtitle {
