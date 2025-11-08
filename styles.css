@@ -583,6 +583,22 @@ body {
     padding: 0 2rem;
 }
 
+.research-cite-note {
+    margin: 1rem 0 2rem;
+    padding: 1rem 1.5rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: 0.75rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.research-cite-note a {
+    color: var(--primary-teal);
+    text-decoration: underline;
+    font-weight: 600;
+}
+
 .research-content {
     display: grid;
     grid-template-columns: 2fr 1fr;
