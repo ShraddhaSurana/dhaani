@@ -202,6 +202,12 @@ const analytics = new AnalyticsTracker();
 let youtubeAPIRequested = false;
 let youtubeAPIQueue = [];
 let demoVideoPlayer = null;
+const DOWNLOAD_EMAIL_STORAGE_KEY = 'dhaani_download_email_opt_in';
+let pendingDownloadContext = null;
+const EMAILJS_SERVICE_ID = 'service_3shr5xc';
+const EMAILJS_CONTACT_TEMPLATE_ID = 'template_hdsgry6';
+const EMAILJS_DOWNLOAD_TEMPLATE_ID = EMAILJS_CONTACT_TEMPLATE_ID; // reuse contact template for opt-in notifications
+const EMAILJS_ADMIN_EMAIL = 'shraddha.surana@gmail.com';
 
 function ensureYouTubeAPI(callback) {
     if (window.YT && typeof window.YT.Player === 'function') {
@@ -265,17 +271,18 @@ function setupDemoVideoPlayer() {
 function trackDownload(source, platform = null) {
     analytics.trackDownload(source, platform);
     
-    // Add visual feedback
-    const button = event.target;
+    const button = typeof event !== 'undefined' ? event.target.closest('button') : null;
+    if (!button) {
+        return;
+    }
+    
     const originalText = button.textContent;
     button.textContent = 'Downloading...';
     button.disabled = true;
     
-    // Simulate download (replace with actual download logic)
     setTimeout(() => {
         button.textContent = originalText;
         button.disabled = false;
-        // Here you would trigger the actual download
         console.log(`Download triggered from ${source} for ${platform || 'unknown platform'}`);
     }, 1000);
 }
@@ -309,6 +316,168 @@ function scrollToVideo() {
     });
 }
 
+function scrollToDownloadSection(source = 'hero') {
+    analytics.trackEvent('download_cta_click', { source });
+    document.getElementById('download').scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    });
+}
+
+function handleDownloadClick(event, platform) {
+    const card = event.currentTarget?.classList?.contains('platform-card')
+        ? event.currentTarget
+        : event.target.closest('.platform-card');
+    const button = card?.querySelector('.platform-btn');
+    
+    pendingDownloadContext = { platform, button };
+    analytics.trackEvent('download_button_click', { platform });
+    openDownloadOptInModal();
+}
+
+function openDownloadOptInModal() {
+    const modal = document.getElementById('optInModal');
+    if (!modal) {
+        proceedWithDownload();
+        return;
+    }
+    
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    
+    const emailInput = document.getElementById('downloadEmail');
+    if (emailInput) {
+        const savedEmail = localStorage.getItem(DOWNLOAD_EMAIL_STORAGE_KEY) || '';
+        emailInput.value = savedEmail;
+        setTimeout(() => emailInput.focus(), 50);
+    }
+}
+
+function hideDownloadOptInModal() {
+    const modal = document.getElementById('optInModal');
+    if (!modal) {
+        return;
+    }
+    
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+}
+
+function handleDownloadEmailSubmit(event) {
+    event.preventDefault();
+    
+    const form = event.target;
+    const submitButton = form.querySelector('.opt-in-button');
+    const originalButtonText = submitButton ? submitButton.textContent : null;
+    
+    const emailInput = document.getElementById('downloadEmail');
+    if (!emailInput) {
+        proceedWithDownload();
+        return;
+    }
+    
+    const email = emailInput.value.trim();
+    if (!email) {
+        showNotification('Add your email to receive tips—or choose Skip & download.', 'info');
+        return;
+    }
+    
+    if (!isValidEmail(email)) {
+        showNotification('Please enter a valid email address.', 'warning');
+        return;
+    }
+    
+    const platform = pendingDownloadContext?.platform || 'unknown';
+    if (submitButton) {
+        submitButton.textContent = 'Sending...';
+        submitButton.disabled = true;
+    }
+    
+    const emailParams = {
+        to_email: EMAILJS_ADMIN_EMAIL,
+        from_name: 'Download Opt-In',
+        from_email: email,
+        subject: `Download tips opt-in (${platform})`,
+        message: `Add ${email} to the download tips list.\nPlatform selected: ${platform}.\nSaved locally on user device.`,
+        reply_to: email
+    };
+    
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_DOWNLOAD_TEMPLATE_ID, emailParams)
+        .then(() => {
+            localStorage.setItem(DOWNLOAD_EMAIL_STORAGE_KEY, email);
+            analytics.trackEvent('download_email_opt_in', {
+                provided_email: true,
+                platform
+            });
+            showNotification('Thanks! We\'ll send advanced tips and the optional survey invite when ready.', 'success');
+            if (submitButton) {
+                submitButton.textContent = originalButtonText || 'Send me tips + download';
+                submitButton.disabled = false;
+            }
+            proceedWithDownload({ viaOptIn: true });
+        })
+        .catch(error => {
+            console.error('Failed to send download opt-in email:', error);
+            showNotification('Could not send the opt-in email yet. Please try again or skip for now.', 'error');
+            if (submitButton) {
+                submitButton.textContent = originalButtonText || 'Send me tips + download';
+                submitButton.disabled = false;
+            }
+        });
+}
+
+function handleDownloadSkip() {
+    analytics.trackEvent('download_email_opt_in_skipped', {
+        platform: pendingDownloadContext?.platform || 'unknown'
+    });
+    proceedWithDownload({ viaOptIn: false });
+}
+
+function proceedWithDownload({ viaOptIn = false } = {}) {
+    const context = pendingDownloadContext;
+    hideDownloadOptInModal();
+    
+    if (!context) {
+        showNotification('Choose a platform to start the download.', 'info');
+        return;
+    }
+    
+    const { platform, button } = context;
+    pendingDownloadContext = null;
+    
+    const emailSaved = !!localStorage.getItem(DOWNLOAD_EMAIL_STORAGE_KEY);
+    trackDownload('download_section', platform);
+    analytics.trackEvent('download_attempt', {
+        platform,
+        provided_email: viaOptIn,
+        email_saved: emailSaved
+    });
+    
+    if (button) {
+        const originalText = button.textContent;
+        button.textContent = viaOptIn ? 'Sending tips...' : 'Preparing download...';
+        button.disabled = true;
+        
+        setTimeout(() => {
+            button.textContent = originalText;
+            button.disabled = false;
+            showNotification('Download will start shortly—check your browser or Downloads folder.', 'success');
+            console.log(`Download triggered from download_section for ${platform || 'unknown platform'}`);
+        }, 1000);
+    } else {
+        setTimeout(() => {
+            showNotification('Download will start shortly—check your browser or Downloads folder.', 'success');
+            console.log(`Download triggered from download_section for ${platform || 'unknown platform'}`);
+        }, 500);
+    }
+}
+
+function isValidEmail(value) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
 // Contact form handling
 function handleContactSubmit(event) {
     event.preventDefault();
@@ -325,14 +494,9 @@ function handleContactSubmit(event) {
     submitButton.textContent = 'Sending...';
     submitButton.disabled = true;
     
-    // EmailJS configuration
-    // Replace these with your actual EmailJS credentials:
-    const SERVICE_ID = 'service_3shr5xc';
-    const TEMPLATE_ID = 'template_hdsgry6';
-    
     // Prepare email parameters
     const emailParams = {
-        to_email: 'shraddha.surana@gmail.com',
+        to_email: EMAILJS_ADMIN_EMAIL,
         from_name: data.name,
         from_email: data.email,
         subject: data.subject,
@@ -341,7 +505,7 @@ function handleContactSubmit(event) {
     };
     
     // Send email using EmailJS
-    emailjs.send(SERVICE_ID, TEMPLATE_ID, emailParams)
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_CONTACT_TEMPLATE_ID, emailParams)
         .then(function(response) {
             // Success
             console.log('Email sent successfully!', response.status, response.text);
@@ -429,6 +593,15 @@ function showNotification(message, type = 'info') {
 // Smooth scrolling for navigation links
 document.addEventListener('DOMContentLoaded', function() {
     setupDemoVideoPlayer();
+    
+    const optInModal = document.getElementById('optInModal');
+    if (optInModal) {
+        optInModal.addEventListener('click', (e) => {
+            if (e.target === optInModal) {
+                handleDownloadSkip();
+            }
+        });
+    }
     // Add smooth scrolling to all anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {

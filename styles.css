@@ -699,6 +699,105 @@ body {
     font-weight: 400;
 }
 
+.opt-in-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.opt-in-description {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.opt-in-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.opt-in-label {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.opt-in-input-group {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.opt-in-input {
+    flex: 1;
+    min-width: 240px;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--border-light);
+    border-radius: 0.6rem;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.opt-in-input:focus {
+    outline: none;
+    border-color: var(--primary-teal);
+    box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.15);
+}
+
+.opt-in-button {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    padding: 0.85rem 1.5rem;
+    border-radius: 0.6rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.opt-in-button:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.privacy-note {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-top: 0.5rem;
+}
+
+.download-terms {
+    background: rgba(20, 184, 166, 0.08);
+    border: 1px solid rgba(20, 184, 166, 0.2);
+    border-radius: 0.85rem;
+    padding: 1.25rem 1.5rem;
+    text-align: left;
+    margin-bottom: 2.5rem;
+}
+
+.terms-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.terms-checkbox input {
+    margin-top: 0.2rem;
+    width: 1rem;
+    height: 1rem;
+    accent-color: var(--primary-teal);
+}
+
+.terms-note {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: 0.75rem;
+}
+
 .download-requirements {
     margin-bottom: 4rem;
 }
@@ -805,6 +904,88 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     font-size: 1.1rem;
+}
+
+.opt-in-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.opt-in-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.opt-in-modal-dialog {
+    background: var(--bg-primary);
+    border-radius: 1.25rem;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-xl);
+    max-width: 520px;
+    width: 100%;
+    padding: 2.5rem;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: var(--text-primary);
+}
+
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.modal-actions .opt-in-button {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    width: auto;
+}
+
+.opt-in-skip {
+    flex: 1;
+    min-width: 160px;
+    background: transparent;
+    border: 1px solid var(--border-light);
+    color: var(--text-primary);
+    padding: 0.85rem 1.5rem;
+    border-radius: 0.6rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.opt-in-skip:hover {
+    border-color: var(--primary-teal);
+    color: var(--primary-teal);
+}
+
+body.modal-open {
+    overflow: hidden;
 }
 
 /* Contact Section */
@@ -1080,9 +1261,36 @@ body {
         width: 100%;
         max-width: 300px;
     }
+    
+    .opt-in-modal-dialog {
+        padding: 2rem;
+    }
+    
+    .modal-close {
+        font-size: 1.35rem;
+    }
+    
+    .opt-in-input-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
 }
 
 @media (max-width: 480px) {
+    .opt-in-modal-dialog {
+        padding: 1.5rem;
+    }
+    
+    .modal-actions {
+        flex-direction: column;
+    }
+    
+    .modal-actions .opt-in-button,
+    .opt-in-skip {
+        width: 100%;
+    }
+    
     .hero-tagline {
         font-size: 1.75rem;
     }

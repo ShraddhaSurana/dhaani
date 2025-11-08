@@ -58,7 +58,7 @@
                     modular software with human-in-the-loop control.
                 </p>
                 <div class="hero-cta">
-                    <button class="btn-primary" onclick="trackDownload('hero')">
+                    <button class="btn-primary" onclick="scrollToDownloadSection('hero')">
                         Download Dhaani
                     </button>
                     <button class="btn-secondary" onclick="scrollToVideo()">
@@ -283,18 +283,28 @@
                 </div>
             </div>
 
+            <!--
+            <div class="download-terms">
+                <label class="terms-checkbox">
+                    <input type="checkbox" id="downloadTerms">
+                    <span>I accept the download terms of use (required before getting Dhaani).</span>
+                </label>
+                <p class="terms-note">Sharing your email stays optional. Terms acceptance just keeps licensing tidy.</p>
+            </div>
+            -->
+
             <div class="download-platforms">
-                <div class="platform-card" onclick="trackDownload('mac')">
+                <div class="platform-card" onclick="handleDownloadClick(event, 'mac')">
                     <div class="platform-icon">🍎</div>
                     <h3 class="platform-name">macOS</h3>
                     <button class="platform-btn">Download for Mac</button>
                 </div>
-                <div class="platform-card" onclick="trackDownload('windows')">
+                <div class="platform-card" onclick="handleDownloadClick(event, 'windows')">
                     <div class="platform-icon">🪟</div>
                     <h3 class="platform-name">Windows</h3>
                     <button class="platform-btn">Download for Windows</button>
                 </div>
-                <div class="platform-card" onclick="trackDownload('linux')">
+                <div class="platform-card" onclick="handleDownloadClick(event, 'linux')">
                     <div class="platform-icon">🐧</div>
                     <h3 class="platform-name">Linux</h3>
                     <button class="platform-btn">Download for Linux</button>
@@ -367,6 +377,28 @@
             </div>
         </div>
     </section>
+
+    <!-- Download Opt-In Modal -->
+    <div class="opt-in-modal" id="optInModal" aria-hidden="true">
+        <div class="opt-in-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="optInTitle">
+            <button class="modal-close" type="button" aria-label="Skip email and continue" onclick="handleDownloadSkip()">×</button>
+            <h3 class="opt-in-title" id="optInTitle">Stay in the loop (optional)</h3>
+            <p class="opt-in-description">Get advanced tips + an optional follow-up survey that informs the research.</p>
+            <form id="downloadEmailForm" class="opt-in-form" onsubmit="handleDownloadEmailSubmit(event)">
+                <label for="downloadEmail" class="opt-in-label">Email (optional)</label>
+                <div class="opt-in-input-group">
+                    <input type="email" id="downloadEmail" name="downloadEmail" class="opt-in-input" placeholder="you@example.com" autocomplete="email">
+                </div>
+                <div class="modal-actions">
+                    <button type="submit" class="opt-in-button">Send me tips + download</button>
+                    <button type="button" class="opt-in-skip" onclick="handleDownloadSkip()">Skip & download</button>
+                </div>
+                <p class="privacy-note">
+                    Privacy first: saved locally on your device. We only email the advanced tips and optional survey. No spam, no sharing, unsubscribe anytime.
+                </p>
+            </form>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
