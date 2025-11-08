@@ -198,6 +198,68 @@ class AnalyticsTracker {
 // Initialize analytics tracker
 const analytics = new AnalyticsTracker();
 
+let youtubeAPIRequested = false;
+let youtubeAPIQueue = [];
+let demoVideoPlayer = null;
+
+function ensureYouTubeAPI(callback) {
+    if (window.YT && typeof window.YT.Player === 'function') {
+        callback();
+        return;
+    }
+
+    youtubeAPIQueue.push(callback);
+
+    if (youtubeAPIRequested) return;
+    youtubeAPIRequested = true;
+
+    const existingHandler = window.onYouTubeIframeAPIReady;
+    window.onYouTubeIframeAPIReady = function() {
+        if (typeof existingHandler === 'function') {
+            existingHandler();
+        }
+        youtubeAPIQueue.forEach(cb => {
+            try {
+                cb();
+            } catch (error) {
+                console.warn('YouTube API callback failed:', error);
+            }
+        });
+        youtubeAPIQueue = [];
+    };
+
+    const scriptTag = document.createElement('script');
+    scriptTag.src = 'https://www.youtube.com/iframe_api';
+    scriptTag.async = true;
+    document.head.appendChild(scriptTag);
+}
+
+function setupDemoVideoPlayer() {
+    const iframe = document.getElementById('demoVideoIframe');
+    if (!iframe || iframe.dataset.playerInitialized === 'true') {
+        return;
+    }
+
+    const desiredVolume = Number(iframe.dataset.volume || 35);
+
+    ensureYouTubeAPI(() => {
+        demoVideoPlayer = new YT.Player('demoVideoIframe', {
+            events: {
+                onReady: () => {
+                    try {
+                        const volume = Math.min(Math.max(desiredVolume, 0), 100);
+                        demoVideoPlayer.setVolume(volume);
+                    } catch (error) {
+                        console.warn('Failed to set demo video volume:', error);
+                    }
+                }
+            }
+        });
+    });
+
+    iframe.dataset.playerInitialized = 'true';
+}
+
 // Global functions for HTML onclick events
 function trackDownload(source, platform = null) {
     analytics.trackDownload(source, platform);
@@ -334,6 +396,7 @@ function showNotification(message, type = 'info') {
 
 // Smooth scrolling for navigation links
 document.addEventListener('DOMContentLoaded', function() {
+    setupDemoVideoPlayer();
     // Add smooth scrolling to all anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
