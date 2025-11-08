@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dhaani - Human-AI Collaborative Software Development</title>
     <meta name="description" content="Dhaani combines human creativity with AI efficiency in a 2-step approach: design first, then code. Build modular software with human-in-the-loop control.">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Google Analytics -->
@@ -91,16 +92,17 @@
         <div class="video-container">
             <h2 class="section-title">See Dhaani in Action</h2>
             <div class="video-wrapper">
-                <div class="video-placeholder">
-                    <div class="play-button" onclick="trackVideoClick()">
-                        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-                            <circle cx="30" cy="30" r="30" fill="white" opacity="0.9"/>
-                            <path d="M22 18L42 30L22 42V18Z" fill="#0891b2"/>
-                        </svg>
-                    </div>
-                    <p class="video-text">Demo Video Coming Soon</p>
-                    <p class="video-subtext">Watch how quickly you can generate code for research and data science</p>
-                </div>
+                <iframe
+                    class="video-embed"
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/TU4jGMdTxkU?si=_dEKXlEYdd5KL5Js"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                ></iframe>
             </div>
         </div>
     </section>
