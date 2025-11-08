@@ -324,27 +324,58 @@ function handleContactSubmit(event) {
     submitButton.textContent = 'Sending...';
     submitButton.disabled = true;
     
-    // Simulate form submission (replace with actual email service)
-    setTimeout(() => {
-        // Reset form
-        event.target.reset();
-        submitButton.textContent = 'Message Sent!';
-        submitButton.style.background = '#10b981';
-        
-        // Show success message
-        showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
-        
-        // Reset button after 3 seconds
-        setTimeout(() => {
-            submitButton.textContent = originalText;
-            submitButton.disabled = false;
-            submitButton.style.background = '';
-        }, 3000);
-        
-        // Here you would send the email to shraddha.surana@gmail.com
-        console.log('Contact form submitted:', data);
-        
-    }, 1500);
+    // EmailJS configuration
+    // Replace these with your actual EmailJS credentials:
+    const SERVICE_ID = 'service_3shr5xc';
+    const TEMPLATE_ID = 'template_hdsgry6';
+    
+    // Prepare email parameters
+    const emailParams = {
+        to_email: 'shraddha.surana@gmail.com',
+        from_name: data.name,
+        from_email: data.email,
+        subject: data.subject,
+        message: data.message,
+        reply_to: data.email
+    };
+    
+    // Send email using EmailJS
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, emailParams)
+        .then(function(response) {
+            // Success
+            console.log('Email sent successfully!', response.status, response.text);
+            
+            // Reset form
+            event.target.reset();
+            submitButton.textContent = 'Message Sent!';
+            submitButton.style.background = '#10b981';
+            
+            // Show success message
+            showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
+            
+            // Reset button after 3 seconds
+            setTimeout(() => {
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+                submitButton.style.background = '';
+            }, 3000);
+        }, function(error) {
+            // Error
+            console.error('Failed to send email:', error);
+            
+            submitButton.textContent = 'Failed to Send';
+            submitButton.style.background = '#ef4444';
+            
+            // Show error message
+            showNotification('Failed to send message. Please try again in some time', 'error');
+            
+            // Reset button after 5 seconds
+            setTimeout(() => {
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+                submitButton.style.background = '';
+            }, 5000);
+        });
 }
 
 // Notification system
