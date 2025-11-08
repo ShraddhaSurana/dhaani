@@ -128,10 +128,11 @@ class AnalyticsTracker {
     trackFormInteractions() {
         // Track form field interactions
         document.addEventListener('focus', (e) => {
-            if (e.target.matches('input, textarea, select')) {
+            const target = e.target;
+            if (target && typeof target.matches === 'function' && target.matches('input, textarea, select')) {
                 this.trackEvent('form_field_focus', {
-                    field_name: e.target.name || e.target.id,
-                    field_type: e.target.type || e.target.tagName.toLowerCase()
+                    field_name: target.name || target.id,
+                    field_type: target.type || target.tagName.toLowerCase()
                 });
             }
         }, true);
