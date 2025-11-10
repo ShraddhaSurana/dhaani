@@ -129,7 +129,17 @@ class AnalyticsTracker {
         // Track form field interactions
         document.addEventListener('focus', (e) => {
             const target = e.target;
-            if (target && typeof target.matches === 'function' && target.matches('input, textarea, select')) {
+            if (!target) {
+                return;
+            }
+
+            const matches =
+                target.matches ||
+                target.matchesSelector ||
+                target.msMatchesSelector ||
+                target.webkitMatchesSelector;
+
+            if (typeof matches === 'function' && matches.call(target, 'input, textarea, select')) {
                 this.trackEvent('form_field_focus', {
                     field_name: target.name || target.id,
                     field_type: target.type || target.tagName.toLowerCase()
