@@ -218,6 +218,39 @@ const EMAILJS_SERVICE_ID = 'service_3shr5xc';
 const EMAILJS_CONTACT_TEMPLATE_ID = 'template_hdsgry6';
 const EMAILJS_DOWNLOAD_TEMPLATE_ID = EMAILJS_CONTACT_TEMPLATE_ID; // reuse contact template for opt-in notifications
 const EMAILJS_ADMIN_EMAIL = 'shraddha.surana@gmail.com';
+const DOWNLOAD_LINKS = {
+    mac: [
+        {
+            url: 'https://github.com/ShraddhaSurana/dhaani/releases/download/v0.1.0/Dhaani-0.1.0-arm64.dmg',
+            filename: 'Dhaani-0.1.0-arm64.dmg',
+            label: 'Dhaani macOS installer (DMG)'
+        },
+        {
+            url: 'public/mac/Install_Dhaani.command',
+            filename: 'Install_Dhaani.command',
+            label: 'Helper installer script'
+        },
+        {
+            url: 'public/mac/INSTALL_INSTRUCTIONS.md',
+            filename: 'INSTALL_INSTRUCTIONS.md',
+            label: 'Installation instructions'
+        }
+    ],
+    windows: [
+        {
+            url: 'https://github.com/ShraddhaSurana/dhaani/releases/download/v0.1.0/Dhaani.Setup.0.1.0.exe',
+            filename: 'Dhaani.Setup.0.1.0.exe',
+            label: 'Windows installer'
+        }
+    ],
+    linux: [
+        {
+            url: 'https://github.com/ShraddhaSurana/dhaani/releases/download/v0.1.0/Dhaani-0.1.0.AppImage',
+            filename: 'Dhaani-0.1.0.AppImage',
+            label: 'Linux AppImage'
+        }
+    ]
+};
 
 function ensureYouTubeAPI(callback) {
     if (window.YT && typeof window.YT.Player === 'function') {
@@ -372,7 +405,7 @@ function hideDownloadOptInModal() {
     
     modal.classList.remove('active');
     modal.setAttribute('aria-hidden', 'true');
-    document.body.classList.remove('modal-open');
+    releaseBodyScrollIfNoActiveModals();
 }
 
 function handleDownloadEmailSubmit(event) {
@@ -465,6 +498,20 @@ function proceedWithDownload({ viaOptIn = false } = {}) {
         email_saved: emailSaved
     });
     
+    const filesToDownload = DOWNLOAD_LINKS[platform] || [];
+    if (!filesToDownload.length) {
+        showNotification('Download links for this platform are coming soon.', 'warning');
+        return;
+    }
+    
+    filesToDownload.forEach((file, index) => {
+        setTimeout(() => triggerFileDownload(file.url, file.filename), index * 250);
+    });
+    
+    if (platform === 'mac') {
+        showMacInstallModal();
+    }
+    
     if (button) {
         const originalText = button.textContent;
         button.textContent = viaOptIn ? 'Sending tips...' : 'Preparing download...';
@@ -484,8 +531,69 @@ function proceedWithDownload({ viaOptIn = false } = {}) {
     }
 }
 
+function triggerFileDownload(url, filename) {
+    if (!url) {
+        return;
+    }
+    
+    try {
+        const link = document.createElement('a');
+        link.href = url;
+        link.target = '_blank';
+        link.rel = 'noopener';
+        if (filename && isSameOrigin(url)) {
+            link.download = filename;
+        }
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    } catch (error) {
+        console.error('Failed to trigger download:', url, error);
+        window.open(url, '_blank', 'noopener');
+    }
+}
+
+function isSameOrigin(url) {
+    try {
+        const parsed = new URL(url, window.location.href);
+        return parsed.origin === window.location.origin;
+    } catch (error) {
+        console.warn('Could not parse URL for origin comparison:', url, error);
+        return false;
+    }
+}
+
 function isValidEmail(value) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+function showMacInstallModal() {
+    const modal = document.getElementById('macInstallModal');
+    if (!modal) {
+        return;
+    }
+    
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+}
+
+function hideMacInstallModal() {
+    const modal = document.getElementById('macInstallModal');
+    if (!modal) {
+        return;
+    }
+    
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    releaseBodyScrollIfNoActiveModals();
+}
+
+function releaseBodyScrollIfNoActiveModals() {
+    const activeModal = document.querySelector('.opt-in-modal.active');
+    if (!activeModal) {
+        document.body.classList.remove('modal-open');
+    }
 }
 
 // Contact form handling
@@ -612,6 +720,22 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    
+    const macInstallModal = document.getElementById('macInstallModal');
+    if (macInstallModal) {
+        macInstallModal.addEventListener('click', (e) => {
+            if (e.target === macInstallModal) {
+                hideMacInstallModal();
+            }
+        });
+    }
+    
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            hideDownloadOptInModal();
+            hideMacInstallModal();
+        }
+    });
     // Add smooth scrolling to all anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {

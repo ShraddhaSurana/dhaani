@@ -399,6 +399,26 @@
             </form>
         </div>
     </div>
+    
+    <!-- Mac Install Reminder Modal -->
+    <div class="opt-in-modal" id="macInstallModal" aria-hidden="true">
+        <div class="opt-in-modal-dialog mac-install-dialog" role="dialog" aria-modal="true" aria-labelledby="macInstallTitle">
+            <button class="modal-close" type="button" aria-label="Close macOS install tips" onclick="hideMacInstallModal()">×</button>
+            <h3 class="opt-in-title" id="macInstallTitle">Finish installing on macOS</h3>
+            <p class="mac-install-lede">
+                Keep <strong>Dhaani-0.1.0-arm64.dmg</strong>, <strong>Install_Dhaani.command</strong>, and <strong>INSTALL_INSTRUCTIONS.md</strong> in the same folder. 
+                Then double-click <strong>Install_Dhaani.command</strong> to run the installer for you.
+            </p>
+            <ul class="mac-install-list">
+                <li>macOS will open Terminal—choose <strong>Open</strong> if it warns you.</li>
+                <li>The helper copies Dhaani.app into <code>/Applications</code> and removes Gatekeeper warnings.</li>
+                <li>Need the steps again later? Download the instruction file anytime.</li>
+            </ul>
+            <a class="mac-install-link" href="public/mac/INSTALL_INSTRUCTIONS.md" target="_blank" rel="noopener" download>
+                Download INSTALL_INSTRUCTIONS.md
+            </a>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">

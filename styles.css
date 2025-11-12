@@ -952,6 +952,41 @@ body {
     color: var(--text-primary);
 }
 
+.mac-install-dialog {
+    max-width: 560px;
+}
+
+.mac-install-lede {
+    margin: 1rem 0;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.mac-install-list {
+    margin: 0;
+    padding-left: 1.25rem;
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.mac-install-list li {
+    margin-bottom: 0.65rem;
+}
+
+.mac-install-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    text-decoration: none;
+}
+
+.mac-install-link:hover {
+    color: var(--primary-teal);
+}
+
 .modal-actions {
     display: flex;
     gap: 1rem;
