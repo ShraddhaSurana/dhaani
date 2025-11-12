@@ -251,6 +251,19 @@ const DOWNLOAD_LINKS = {
         }
     ]
 };
+// Keep base64 payloads in sync with the helper artifacts inside public/mac
+const EMBEDDED_HELPER_FILES = {
+    'public/mac/Install_Dhaani.command': {
+        filename: 'Install_Dhaani.command',
+        mimeType: 'text/plain',
+        base64: 'IyEvYmluL3pzaApzZXQgLWV1byBwaXBlZmFpbAoKZWNobyAiRGhhYW5pIGluc3RhbGxlciAob25lLXRpbWUgc2V0dXApIgoKIyBMb2NhdGUgRE1HOiBhcmcgPiBEaGFhbmkuZG1nIG5leHQgdG8gdGhpcyBzY3JpcHQgPiBuZXdlc3QgRGhhYW5pKi5kbWcgbmV4dCB0byB0aGlzIHNjcmlwdApTQ1JJUFRfRElSPSIkKCBjZCAiJCggZGlybmFtZSAiJHtCQVNIX1NPVVJDRVswXTotJDB9IiApIiAmPiAvZGV2L251bGwgJiYgcHdkICkiCkRNR19QQVRIPSIkezE6LSRTQ1JJUFRfRElSL0RoYWFuaS5kbWd9IgppZiBbICEgLWYgIiRETUdfUEFUSCIgXTsgdGhlbgogIENBTkRJREFURT0kKGxzIC10ICIkU0NSSVBUX0RJUiIvRGhhYW5pKi5kbWcgMj4vZGV2L251bGwgfCBoZWFkIC1uIDEgfHwgdHJ1ZSkKICBpZiBbIC1uICIke0NBTkRJREFURTotfSIgXTsgdGhlbgogICAgRE1HX1BBVEg9IiRDQU5ESURBVEUiCiAgZmkKZmkKCmlmIFsgISAtZiAiJERNR19QQVRIIiBdOyB0aGVuCiAgZWNobyAiQ291bGQgbm90IGZpbmQgRGhhYW5pLmRtZy4gUGxhY2UgaXQgbmV4dCB0byBJbnN0YWxsX0RoYWFuaS5jb21tYW5kIG9yIHBhc3MgYSBwYXRoOiIKICBlY2hvICIgIC4vSW5zdGFsbF9EaGFhbmkuY29tbWFuZCAvcGF0aC90by9EaGFhbmkuZG1nIgogIGV4aXQgMQpmaQoKZWNobyAiVXNpbmcgRE1HOiAkRE1HX1BBVEgiCgojIFJlbW92ZSBxdWFyYW50aW5lIGZyb20gRE1HIGFuZCBtb3VudAp4YXR0ciAtZHIgY29tLmFwcGxlLnF1YXJhbnRpbmUgIiRETUdfUEFUSCIgMj4vZGV2L251bGwgfHwgdHJ1ZQpoZGl1dGlsIGF0dGFjaCAtbm9icm93c2UgIiRETUdfUEFUSCIKc2xlZXAgMgoKIyBSZXNvbHZlIG1vdW50ZWQgdm9sdW1lIHBhdGgKVk9MPSIvVm9sdW1lcy9EaGFhbmkiCmlmIFsgISAtZCAiJFZPTCIgXTsgdGhlbgogIFZPTD0kKGxzIC1kIC9Wb2x1bWVzL0RoYWFuaSogMj4vZGV2L251bGwgfCBoZWFkIC1uIDEgfHwgdHJ1ZSkKZmkKCmlmIFsgISAtZCAiJFZPTCIgXTsgdGhlbgogIGVjaG8gIkZhaWxlZCB0byBsb2NhdGUgbW91bnRlZCB2b2x1bWUuIElzIHRoZSBETUcgbW91bnRlZD8iCiAgZXhpdCAxCmZpCgplY2hvICJNb3VudGVkIGF0OiAkVk9MIgoKIyBDb3B5IGFwcCB0byBBcHBsaWNhdGlvbnMKY3AgLVIgIiRWT0wvRGhhYW5pLmFwcCIgL0FwcGxpY2F0aW9ucwoKIyBSZW1vdmUgcXVhcmFudGluZSBvbiB0aGUgYXBwIGFuZCBvcGVuIGl0CnhhdHRyIC1kciBjb20uYXBwbGUucXVhcmFudGluZSAvQXBwbGljYXRpb25zL0RoYWFuaS5hcHAgMj4vZGV2L251bGwgfHwgdHJ1ZQoKIyBEZXRhY2ggdm9sdW1lCmhkaXV0aWwgZGV0YWNoICIkVk9MIiAyPi9kZXYvbnVsbCB8fCB0cnVlCgplY2hvICJMYXVuY2hpbmcgRGhhYW5pLi4uIgpvcGVuIC9BcHBsaWNhdGlvbnMvRGhhYW5pLmFwcAoKZWNobyAiRG9uZS4gWW91IGNhbiBub3cgdXNlIERoYWFuaSBmcm9tIEFwcGxpY2F0aW9ucy4iCg=='
+    },
+    'public/mac/INSTALL_INSTRUCTIONS.md': {
+        filename: 'INSTALL_INSTRUCTIONS.md',
+        mimeType: 'text/markdown',
+        base64: 'IyBJbnN0YWxsaW5nIERoYWFuaSBvbiBtYWNPUwoKQmVjYXVzZSBEaGFhbmkgaXMgbm90IHlldCBub3Rhcml6ZWQgYnkgQXBwbGUsIHRoZSBpbnN0YWxsYXRpb24gbmVlZHMgYW4gZXh0cmEgaGVscGVyIHNjcmlwdC4KCjEuIERvd25sb2FkIGFsbCB0aHJlZSBmaWxlczogYERoYWFuaS0wLjEuMC1hcm02NC5kbWdgLCBgSW5zdGFsbF9EaGFhbmkuY29tbWFuZGAsIGFuZCB0aGlzIGBJTlNUQUxMX0lOU1RSVUNUSU9OUy5tZGAgZmlsZS4KMi4gTW92ZSB0aGUgdGhyZWUgZmlsZXMgaW50byB0aGUgc2FtZSBmb2xkZXIgKGZvciBleGFtcGxlLCB5b3VyIERvd25sb2FkcyBmb2xkZXIpLgozLiBEb3VibGUtY2xpY2sgYEluc3RhbGxfRGhhYW5pLmNvbW1hbmRgLiBtYWNPUyBtYXkgYXNrIGZvciBjb25maXJtYXRpb24gYmVjYXVzZSB0aGUgZmlsZSB3YXMgZG93bmxvYWRlZCBmcm9tIHRoZSBpbnRlcm5ldOKAlGNob29zZSAqKk9wZW4qKi4KNC4gV2hlbiBwcm9tcHRlZCwgZW50ZXIgeW91ciBhZG1pbmlzdHJhdG9yIHBhc3N3b3JkIHNvIHRoZSBzY3JpcHQgY2FuIGNvcHkgYERoYWFuaS5hcHBgIGludG8gYC9BcHBsaWNhdGlvbnNgIGFuZCByZW1vdmUgdGhlIEdhdGVrZWVwZXIgcXVhcmFudGluZSBmbGFnLgo1LiBPbmNlIHRoZSBUZXJtaW5hbCB3aW5kb3cgc2F5cyAiRGhhYW5pIGlzIGluc3RhbGxlZCIsIHRoZSBhcHAgd2lsbCBsYXVuY2ggYXV0b21hdGljYWxseS4gWW91IGNhbiB0aGVuIGVqZWN0IHRoZSBtb3VudGVkIGRpc2sgaW1hZ2UuCgpNYW51YWwgaW5zdGFsbCAoaWYgeW91IHByZWZlciBub3QgdG8gcnVuIHRoZSBzY3JpcHQpOgoKYGBgYmFzaApoZGl1dGlsIGF0dGFjaCBEaGFhbmktMC4xLjAtYXJtNjQuZG1nCmNwIC1SIC9Wb2x1bWVzL0RoYWFuaS9EaGFhbmkuYXBwIC9BcHBsaWNhdGlvbnMKeGF0dHIgLWRyIGNvbS5hcHBsZS5xdWFyYW50aW5lIC9BcHBsaWNhdGlvbnMvRGhhYW5pLmFwcApvcGVuIC9BcHBsaWNhdGlvbnMvRGhhYW5pLmFwcApoZGl1dGlsIGRldGFjaCAvVm9sdW1lcy9EaGFhbmkKYGBgCgpOZWVkIGhlbHA/IENvbnRhY3QgU2hyYWRkaGEgYXQgc2hyYWRkaGEuc3VyYW5hQGdtYWlsLmNvbS4K'
+    }
+};
 
 function ensureYouTubeAPI(callback) {
     if (window.YT && typeof window.YT.Player === 'function') {
@@ -504,8 +517,13 @@ function proceedWithDownload({ viaOptIn = false } = {}) {
         return;
     }
     
-    filesToDownload.forEach((file, index) => {
-        setTimeout(() => triggerFileDownload(file.url, file.filename), index * 250);
+    const [primaryFile, ...helperFiles] = filesToDownload;
+    if (primaryFile) {
+        triggerFileDownload(primaryFile.url, primaryFile.filename);
+    }
+    
+    helperFiles.forEach((file, index) => {
+        setTimeout(() => triggerFileDownload(file.url, file.filename), (index + 1) * 200);
     });
     
     if (platform === 'mac') {
@@ -536,20 +554,90 @@ function triggerFileDownload(url, filename) {
         return;
     }
     
+    const embedded = EMBEDDED_HELPER_FILES[url];
+    if (embedded && downloadEmbeddedFile(embedded, filename)) {
+        return;
+    }
+    
     try {
-        const link = document.createElement('a');
-        link.href = url;
-        link.target = '_blank';
-        link.rel = 'noopener';
-        if (filename && isSameOrigin(url)) {
-            link.download = filename;
+        const resolvedUrl = new URL(url, window.location.href).toString();
+        if (isSameOrigin(resolvedUrl)) {
+            downloadSameOriginFile(resolvedUrl, filename);
+        } else {
+            openDownloadWindow(resolvedUrl);
         }
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
     } catch (error) {
         console.error('Failed to trigger download:', url, error);
         window.open(url, '_blank', 'noopener');
+    }
+}
+
+function downloadSameOriginFile(url, filename) {
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Failed to fetch ${url}`);
+            }
+            return response.blob();
+        })
+        .then(blob => {
+            triggerBlobDownload(blob, filename || getFilenameFromUrl(url));
+        })
+        .catch(error => {
+            console.error('Failed to stream download, falling back to direct link:', url, error);
+            openDownloadWindow(url);
+        });
+}
+
+function downloadEmbeddedFile(embedded, filenameOverride) {
+    try {
+        const binary = atob(embedded.base64);
+        const buffer = new Uint8Array(binary.length);
+        for (let i = 0; i < binary.length; i++) {
+            buffer[i] = binary.charCodeAt(i);
+        }
+        const blob = new Blob([buffer], { type: embedded.mimeType || 'application/octet-stream' });
+        triggerBlobDownload(blob, filenameOverride || embedded.filename);
+        return true;
+    } catch (error) {
+        console.error('Failed to use embedded helper file data:', error);
+        return false;
+    }
+}
+
+function triggerBlobDownload(blob, filename) {
+    const blobUrl = URL.createObjectURL(blob);
+    clickHiddenLink(blobUrl, filename, '_self');
+    setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
+}
+
+function openDownloadWindow(url) {
+    clickHiddenLink(url, null, '_blank');
+}
+
+function clickHiddenLink(href, filename, target = '_self') {
+    const link = document.createElement('a');
+    link.href = href;
+    link.target = target;
+    link.rel = 'noopener';
+    if (filename) {
+        link.download = filename;
+    }
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+function getFilenameFromUrl(url) {
+    try {
+        const parsed = new URL(url, window.location.href);
+        const pathname = parsed.pathname;
+        const segments = pathname.split('/');
+        const inferred = segments[segments.length - 1];
+        return inferred || 'download';
+    } catch {
+        return 'download';
     }
 }
 
