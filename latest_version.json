@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0",
+  "releaseDate": "2025-11-13T00:00:00.000Z",
+  "releaseNotes": "Initial release with update checking functionality",
+  "platforms": {
+    "mac-arm64": {
+      "url": "https://shraddhasurana.github.io/dhaani/Dhaani-1.0.0-arm64.dmg",
+      "size": 0,
+      "checksum": ""
+    },
+    "mac-x64": {
+      "url": "https://shraddhasurana.github.io/dhaani/Dhaani-1.0.0.dmg",
+      "size": 0,
+      "checksum": ""
+    },
+    "windows": {
+      "url": "https://shraddhasurana.github.io/dhaani/Dhaani-Setup-1.0.0.exe",
+      "size": 0,
+      "checksum": ""
+    },
+    "linux": {
+      "url": "https://shraddhasurana.github.io/dhaani/Dhaani-1.0.0.AppImage",
+      "size": 0,
+      "checksum": ""
+    }
+  },
+  "minimumVersion": "0.1.0",
+  "updateUrl": "https://shraddhasurana.github.io/dhaani/"
+}
