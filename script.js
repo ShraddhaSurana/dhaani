@@ -251,6 +251,10 @@ const DOWNLOAD_LINKS = {
         }
     ]
 };
+const UNAVAILABLE_PLATFORM_MESSAGES = {
+    windows: 'The Windows installer is coming soon. Drop your email to get notified when it\'s ready.',
+    linux: 'The Linux build is coming soon. We\'ll add the download link once the AppImage is ready.'
+};
 // Keep base64 payloads in sync with the helper artifacts inside public/mac
 const EMBEDDED_HELPER_FILES = {
     'public/mac/Install_Dhaani.command': {
@@ -381,13 +385,34 @@ function scrollToDownloadSection(source = 'hero') {
 }
 
 function handleDownloadClick(event, platform) {
+    const normalizedPlatform = typeof platform === 'string'
+        ? platform.toLowerCase()
+        : platform;
     const card = event.currentTarget?.classList?.contains('platform-card')
         ? event.currentTarget
         : event.target.closest('.platform-card');
     const button = card?.querySelector('.platform-btn');
     
-    pendingDownloadContext = { platform, button };
-    analytics.trackEvent('download_button_click', { platform });
+    analytics.trackEvent('download_button_click', { platform: normalizedPlatform });
+    
+    if (UNAVAILABLE_PLATFORM_MESSAGES[normalizedPlatform]) {
+        const message = UNAVAILABLE_PLATFORM_MESSAGES[normalizedPlatform];
+        showNotification(message, 'info');
+        analytics.trackEvent('download_unavailable_notice', { platform: normalizedPlatform });
+        
+        if (button) {
+            const originalText = button.textContent;
+            button.textContent = 'Coming soon';
+            button.disabled = true;
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.disabled = false;
+            }, 1500);
+        }
+        return;
+    }
+    
+    pendingDownloadContext = { platform: normalizedPlatform, button };
     openDownloadOptInModal();
 }
 
