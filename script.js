@@ -245,15 +245,14 @@ const DOWNLOAD_LINKS = {
     ],
     linux: [
         {
-            url: 'https://github.com/ShraddhaSurana/dhaani/releases/download/v0.1.0/Dhaani-0.1.0.AppImage',
-            filename: 'Dhaani-0.1.0.AppImage',
+            url: 'https://github.com/ShraddhaSurana/dhaani/releases/download/v0.1.0/Dhaani-0.1.1.AppImage',
+            filename: 'Dhaani-0.1.1.AppImage',
             label: 'Linux AppImage'
         }
     ]
 };
 const UNAVAILABLE_PLATFORM_MESSAGES = {
-    windows: 'The Windows installer is coming soon. Drop your email to get notified when it\'s ready.',
-    linux: 'The Linux build is coming soon. We\'ll add the download link once the AppImage is ready.'
+    windows: 'The Windows installer is coming soon. Drop your email to get notified when it\'s ready.'
 };
 // Keep base64 payloads in sync with the helper artifacts inside public/mac
 const EMBEDDED_HELPER_FILES = {
