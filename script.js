@@ -251,9 +251,7 @@ const DOWNLOAD_LINKS = {
         }
     ]
 };
-const UNAVAILABLE_PLATFORM_MESSAGES = {
-    windows: 'The Windows installer is coming soon. Drop your email to get notified when it\'s ready.'
-};
+const UNAVAILABLE_PLATFORM_MESSAGES = {};
 // Keep base64 payloads in sync with the helper artifacts inside public/mac
 const EMBEDDED_HELPER_FILES = {
     'public/mac/Install_Dhaani.command': {
