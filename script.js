@@ -217,12 +217,12 @@ let pendingDownloadContext = null;
 const EMAILJS_SERVICE_ID = 'service_3shr5xc';
 const EMAILJS_CONTACT_TEMPLATE_ID = 'template_hdsgry6';
 const EMAILJS_DOWNLOAD_TEMPLATE_ID = EMAILJS_CONTACT_TEMPLATE_ID; // reuse contact template for opt-in notifications
-const EMAILJS_ADMIN_EMAIL = 'shraddha.surana@gmail.com';
+const EMAILJS_ADMIN_EMAIL = 'dhaani.iprog@gmail.com';
 const DOWNLOAD_LINKS = {
     mac: [
         {
-            url: 'https://github.com/ShraddhaSurana/dhaani/releases/download/v0.1.0/Dhaani-0.1.1-arm64.dmg',
-            filename: 'Dhaani-0.1.1-arm64.dmg',
+            url: 'https://github.com/ShraddhaSurana/dhaani/releases/download/v1.0.0/Dhaani-1.0.0-arm64.dmg',
+            filename: 'Dhaani-1.0.0-arm64.dmg',
             label: 'Dhaani macOS installer (DMG)'
         },
         {
@@ -238,15 +238,15 @@ const DOWNLOAD_LINKS = {
     ],
     windows: [
         {
-            url: 'https://github.com/ShraddhaSurana/dhaani/releases/download/v0.1.0/Dhaani.Setup.0.1.1.exe',
-            filename: 'Dhaani.Setup.0.1.1.exe',
+            url: 'https://github.com/ShraddhaSurana/dhaani/releases/download/v1.0.0/Dhaani.Setup.1.0.0.exe',
+            filename: 'Dhaani.Setup.1.0.0.exe',
             label: 'Windows installer'
         }
     ],
     linux: [
         {
-            url: 'https://github.com/ShraddhaSurana/dhaani/releases/download/v0.1.0/Dhaani-0.1.1.AppImage',
-            filename: 'Dhaani-0.1.1.AppImage',
+            url: 'https://github.com/ShraddhaSurana/dhaani/releases/download/v1.0.0/Dhaani-1.0.0.AppImage',
+            filename: 'Dhaani-1.0.0.AppImage',
             label: 'Linux AppImage'
         }
     ]
@@ -262,7 +262,7 @@ const EMBEDDED_HELPER_FILES = {
     'public/mac/INSTALL_INSTRUCTIONS.md': {
         filename: 'INSTALL_INSTRUCTIONS.md',
         mimeType: 'text/markdown',
-        base64: 'IyBJbnN0YWxsaW5nIERoYWFuaSBvbiBtYWNPUwoKQmVjYXVzZSBEaGFhbmkgaXMgbm90IHlldCBub3Rhcml6ZWQgYnkgQXBwbGUsIHRoZSBpbnN0YWxsYXRpb24gbmVlZHMgYW4gZXh0cmEgaGVscGVyIHNjcmlwdC4KCjEuIERvd25sb2FkIGFsbCB0aHJlZSBmaWxlczogYERoYWFuaS0wLjEuMS1hcm02NC5kbWdgLCBgSW5zdGFsbF9EaGFhbmkuY29tbWFuZGAsIGFuZCB0aGlzIGBJTlNUQUxMX0lOU1RSVUNUSU9OUy5tZGAgZmlsZS4KMi4gTW92ZSB0aGUgdGhyZWUgZmlsZXMgaW50byB0aGUgc2FtZSBmb2xkZXIgKGZvciBleGFtcGxlLCB5b3VyIERvd25sb2FkcyBmb2xkZXIpLgozLiBEb3VibGUtY2xpY2sgYEluc3RhbGxfRGhhYW5pLmNvbW1hbmRgLiBtYWNPUyBtYXkgYXNrIGZvciBjb25maXJtYXRpb24gYmVjYXVzZSB0aGUgZmlsZSB3YXMgZG93bmxvYWRlZCBmcm9tIHRoZSBpbnRlcm5ldOKAlGNob29zZSAqKk9wZW4qKi4KNC4gV2hlbiBwcm9tcHRlZCwgZW50ZXIgeW91ciBhZG1pbmlzdHJhdG9yIHBhc3N3b3JkIHNvIHRoZSBzY3JpcHQgY2FuIGNvcHkgYERoYWFuaS5hcHBgIGludG8gYC9BcHBsaWNhdGlvbnNgIGFuZCByZW1vdmUgdGhlIEdhdGVrZWVwZXIgcXVhcmFudGluZSBmbGFnLgo1LiBPbmNlIHRoZSBUZXJtaW5hbCB3aW5kb3cgc2F5cyAiRGhhYW5pIGlzIGluc3RhbGxlZCIsIHRoZSBhcHAgd2lsbCBsYXVuY2ggYXV0b21hdGljYWxseS4gWW91IGNhbiB0aGVuIGVqZWN0IHRoZSBtb3VudGVkIGRpc2sgaW1hZ2UuCgpNYW51YWwgaW5zdGFsbCAoaWYgeW91IHByZWZlciBub3QgdG8gcnVuIHRoZSBzY3JpcHQpOgoKYGBgYmFzaApoZGl1dGlsIGF0dGFjaCBEaGFhbmktMC4xLjEtYXJtNjQuZG1nCmNwIC1SIC9Wb2x1bWVzL0RoYWFuaS9EaGFhbmkuYXBwIC9BcHBsaWNhdGlvbnMKeGF0dHIgLWRyIGNvbS5hcHBsZS5xdWFyYW50aW5lIC9BcHBsaWNhdGlvbnMvRGhhYW5pLmFwcApvcGVuIC9BcHBsaWNhdGlvbnMvRGhhYW5pLmFwcApoZGl1dGlsIGRldGFjaCAvVm9sdW1lcy9EaGFhbmkKYGBgCgpOZWVkIGhlbHA/IENvbnRhY3QgU2hyYWRkaGEgYXQgc2hyYWRkaGEuc3VyYW5hQGdtYWlsLmNvbS4K'
+        base64: 'IyBJbnN0YWxsaW5nIERoYWFuaSBvbiBtYWNPUwoKQmVjYXVzZSBEaGFhbmkgaXMgbm90IHlldCBub3Rhcml6ZWQgYnkgQXBwbGUsIHRoZSBpbnN0YWxsYXRpb24gbmVlZHMgYW4gZXh0cmEgaGVscGVyIHNjcmlwdC4KCjEuIERvd25sb2FkIGFsbCB0aHJlZSBmaWxlczogYERoYWFuaS0xLjAuMC1hcm02NC5kbWdgLCBgSW5zdGFsbF9EaGFhbmkuY29tbWFuZGAsIGFuZCB0aGlzIGBJTlNUQUxMX0lOU1RSVUNUSU9OUy5tZGAgZmlsZS4KMi4gTW92ZSB0aGUgdGhyZWUgZmlsZXMgaW50byB0aGUgc2FtZSBmb2xkZXIgKGZvciBleGFtcGxlLCB5b3VyIERvd25sb2FkcyBmb2xkZXIpLgozLiBEb3VibGUtY2xpY2sgYEluc3RhbGxfRGhhYW5pLmNvbW1hbmRgLiBtYWNPUyBtYXkgYXNrIGZvciBjb25maXJtYXRpb24gYmVjYXVzZSB0aGUgZmlsZSB3YXMgZG93bmxvYWRlZCBmcm9tIHRoZSBpbnRlcm5ldOKAlGNob29zZSAqKk9wZW4qKi4KNC4gV2hlbiBwcm9tcHRlZCwgZW50ZXIgeW91ciBhZG1pbmlzdHJhdG9yIHBhc3N3b3JkIHNvIHRoZSBzY3JpcHQgY2FuIGNvcHkgYERoYWFuaS5hcHBgIGludG8gYC9BcHBsaWNhdGlvbnNgIGFuZCByZW1vdmUgdGhlIEdhdGVrZWVwZXIgcXVhcmFudGluZSBmbGFnLgo1LiBPbmNlIHRoZSBUZXJtaW5hbCB3aW5kb3cgc2F5cyAiRGhhYW5pIGlzIGluc3RhbGxlZCIsIHRoZSBhcHAgd2lsbCBsYXVuY2ggYXV0b21hdGljYWxseS4gWW91IGNhbiB0aGVuIGVqZWN0IHRoZSBtb3VudGVkIGRpc2sgaW1hZ2UuCgpNYW51YWwgaW5zdGFsbCAoaWYgeW91IHByZWZlciBub3QgdG8gcnVuIHRoZSBzY3JpcHQpOgoKYGBgYmFzaApoZGl1dGlsIGF0dGFjaCBEaGFhbmktMS4wLjAtYXJtNjQuZG1nCmNwIC1SIC9Wb2x1bWVzL0RoYWFuaS9EaGFhbmkuYXBwIC9BcHBsaWNhdGlvbnMKeGF0dHIgLWRyIGNvbS5hcHBsZS5xdWFyYW50aW5lIC9BcHBsaWNhdGlvbnMvRGhhYW5pLmFwcApvcGVuIC9BcHBsaWNhdGlvbnMvRGhhYW5pLmFwcApoZGl1dGlsIGRldGFjaCAvVm9sdW1lcy9EaGFhbmkKYGBgCgpOZWVkIGhlbHA/IENvbnRhY3QgU2hyYWRkaGEgYXQgc2hyYWRkaGEuc3VyYW5hQGdtYWlsLmNvbS4K'
     }
 };
 
