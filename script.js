@@ -514,6 +514,14 @@ function handleDownloadSkip() {
     proceedWithDownload({ viaOptIn: false });
 }
 
+function handleInstallInstructionsDownload(event) {
+    if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+    triggerFileDownload('public/mac/INSTALL_INSTRUCTIONS.md', 'INSTALL_INSTRUCTIONS.md');
+}
+
 function proceedWithDownload({ viaOptIn = false } = {}) {
     const context = pendingDownloadContext;
     hideDownloadOptInModal();
@@ -841,13 +849,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    const macInstallLink = document.querySelector('.mac-install-link');
-    if (macInstallLink) {
-        macInstallLink.addEventListener('click', (event) => {
-            event.preventDefault();
-            triggerFileDownload('public/mac/INSTALL_INSTRUCTIONS.md', 'INSTALL_INSTRUCTIONS.md');
-        });
-    }
     
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
