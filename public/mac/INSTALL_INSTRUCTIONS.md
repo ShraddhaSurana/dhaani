@@ -11,8 +11,12 @@ Because Dhaani is not yet notarized by Apple, the installation needs an extra he
 Manual install (if you prefer not to run the script):
 
 ```bash
-hdiutil attach Dhaani-1.0.0-arm64.dmg
-VOLUME=$(ls -d /Volumes/Dhaani* | head -n 1)
+xattr -dr com.apple.quarantine Dhaani-1.0.0-arm64.dmg 2>/dev/null || true
+hdiutil attach -nobrowse Dhaani-1.0.0-arm64.dmg
+VOLUME="/Volumes/Dhaani"
+if [ ! -d "$VOLUME" ]; then
+  VOLUME=$(ls -d /Volumes/Dhaani* 2>/dev/null | head -n 1 || true)
+fi
 cp -R "$VOLUME/Dhaani.app" /Applications
 xattr -dr com.apple.quarantine /Applications/Dhaani.app
 open /Applications/Dhaani.app

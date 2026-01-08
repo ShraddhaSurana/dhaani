@@ -262,7 +262,7 @@ const EMBEDDED_HELPER_FILES = {
     'public/mac/INSTALL_INSTRUCTIONS.md': {
         filename: 'INSTALL_INSTRUCTIONS.md',
         mimeType: 'text/markdown',
-        base64: 'IyBJbnN0YWxsaW5nIERoYWFuaSBvbiBtYWNPUwoKQmVjYXVzZSBEaGFhbmkgaXMgbm90IHlldCBub3Rhcml6ZWQgYnkgQXBwbGUsIHRoZSBpbnN0YWxsYXRpb24gbmVlZHMgYW4gZXh0cmEgaGVscGVyIHNjcmlwdC4KCjEuIERvd25sb2FkIGFsbCB0aHJlZSBmaWxlczogYERoYWFuaS0xLjAuMC1hcm02NC5kbWdgLCBgSW5zdGFsbF9EaGFhbmkuY29tbWFuZGAsIGFuZCB0aGlzIGBJTlNUQUxMX0lOU1RSVUNUSU9OUy5tZGAgZmlsZS4KMi4gTW92ZSB0aGUgdGhyZWUgZmlsZXMgaW50byB0aGUgc2FtZSBmb2xkZXIgKGZvciBleGFtcGxlLCB5b3VyIERvd25sb2FkcyBmb2xkZXIpLgozLiBEb3VibGUtY2xpY2sgYEluc3RhbGxfRGhhYW5pLmNvbW1hbmRgLiBtYWNPUyBtYXkgYXNrIGZvciBjb25maXJtYXRpb24gYmVjYXVzZSB0aGUgZmlsZSB3YXMgZG93bmxvYWRlZCBmcm9tIHRoZSBpbnRlcm5ldOKAlGNob29zZSAqKk9wZW4qKi4KNC4gV2hlbiBwcm9tcHRlZCwgZW50ZXIgeW91ciBhZG1pbmlzdHJhdG9yIHBhc3N3b3JkIHNvIHRoZSBzY3JpcHQgY2FuIGNvcHkgYERoYWFuaS5hcHBgIGludG8gYC9BcHBsaWNhdGlvbnNgIGFuZCByZW1vdmUgdGhlIEdhdGVrZWVwZXIgcXVhcmFudGluZSBmbGFnLgo1LiBPbmNlIHRoZSBUZXJtaW5hbCB3aW5kb3cgc2F5cyAiRGhhYW5pIGlzIGluc3RhbGxlZCIsIHRoZSBhcHAgd2lsbCBsYXVuY2ggYXV0b21hdGljYWxseS4gWW91IGNhbiB0aGVuIGVqZWN0IHRoZSBtb3VudGVkIGRpc2sgaW1hZ2UuCgpNYW51YWwgaW5zdGFsbCAoaWYgeW91IHByZWZlciBub3QgdG8gcnVuIHRoZSBzY3JpcHQpOgoKYGBgYmFzaApoZGl1dGlsIGF0dGFjaCBEaGFhbmktMS4wLjAtYXJtNjQuZG1nCmNwIC1SIC9Wb2x1bWVzL0RoYWFuaS9EaGFhbmkuYXBwIC9BcHBsaWNhdGlvbnMKeGF0dHIgLWRyIGNvbS5hcHBsZS5xdWFyYW50aW5lIC9BcHBsaWNhdGlvbnMvRGhhYW5pLmFwcApvcGVuIC9BcHBsaWNhdGlvbnMvRGhhYW5pLmFwcApoZGl1dGlsIGRldGFjaCAvVm9sdW1lcy9EaGFhbmkKYGBgCgpOZWVkIGhlbHA/IENvbnRhY3QgU2hyYWRkaGEgYXQgc2hyYWRkaGEuc3VyYW5hQGdtYWlsLmNvbS4K'
+        base64: 'IyBJbnN0YWxsaW5nIERoYWFuaSBvbiBtYWNPUwoKQmVjYXVzZSBEaGFhbmkgaXMgbm90IHlldCBub3Rhcml6ZWQgYnkgQXBwbGUsIHRoZSBpbnN0YWxsYXRpb24gbmVlZHMgYW4gZXh0cmEgaGVscGVyIHNjcmlwdC4KCjEuIERvd25sb2FkIGFsbCB0aHJlZSBmaWxlczogYERoYWFuaS0xLjAuMC1hcm02NC5kbWdgLCBgSW5zdGFsbF9EaGFhbmkuY29tbWFuZGAsIGFuZCB0aGlzIGBJTlNUQUxMX0lOU1RSVUNUSU9OUy5tZGAgZmlsZS4KMi4gTW92ZSB0aGUgdGhyZWUgZmlsZXMgaW50byB0aGUgc2FtZSBmb2xkZXIgKGZvciBleGFtcGxlLCB5b3VyIERvd25sb2FkcyBmb2xkZXIpLgozLiBEb3VibGUtY2xpY2sgYEluc3RhbGxfRGhhYW5pLmNvbW1hbmRgLiBtYWNPUyBtYXkgYXNrIGZvciBjb25maXJtYXRpb24gYmVjYXVzZSB0aGUgZmlsZSB3YXMgZG93bmxvYWRlZCBmcm9tIHRoZSBpbnRlcm5ldOKAlGNob29zZSAqKk9wZW4qKi4KNC4gV2hlbiBwcm9tcHRlZCwgZW50ZXIgeW91ciBhZG1pbmlzdHJhdG9yIHBhc3N3b3JkIHNvIHRoZSBzY3JpcHQgY2FuIGNvcHkgYERoYWFuaS5hcHBgIGludG8gYC9BcHBsaWNhdGlvbnNgIGFuZCByZW1vdmUgdGhlIEdhdGVrZWVwZXIgcXVhcmFudGluZSBmbGFnLgo1LiBPbmNlIHRoZSBUZXJtaW5hbCB3aW5kb3cgc2F5cyAiRGhhYW5pIGlzIGluc3RhbGxlZCIsIHRoZSBhcHAgd2lsbCBsYXVuY2ggYXV0b21hdGljYWxseS4gWW91IGNhbiB0aGVuIGVqZWN0IHRoZSBtb3VudGVkIGRpc2sgaW1hZ2UuCgpNYW51YWwgaW5zdGFsbCAoaWYgeW91IHByZWZlciBub3QgdG8gcnVuIHRoZSBzY3JpcHQpOgoKYGBgYmFzaAp4YXR0ciAtZHIgY29tLmFwcGxlLnF1YXJhbnRpbmUgRGhhYW5pLTEuMC4wLWFybTY0LmRtZyAyPi9kZXYvbnVsbCB8fCB0cnVlCmhkaXV0aWwgYXR0YWNoIC1ub2Jyb3dzZSBEaGFhbmktMS4wLjAtYXJtNjQuZG1nClZPTFVNRT0iL1ZvbHVtZXMvRGhhYW5pIgppZiBbICEgLWQgIiRWT0xVTUUiIF07IHRoZW4KICBWT0xVTUU9JChscyAtZCAvVm9sdW1lcy9EaGFhbmkqIDI+L2Rldi9udWxsIHwgaGVhZCAtbiAxIHx8IHRydWUpCmZpCmNwIC1SICIkVk9MVU1FL0RoYWFuaS5hcHAiIC9BcHBsaWNhdGlvbnMKeGF0dHIgLWRyIGNvbS5hcHBsZS5xdWFyYW50aW5lIC9BcHBsaWNhdGlvbnMvRGhhYW5pLmFwcApvcGVuIC9BcHBsaWNhdGlvbnMvRGhhYW5pLmFwcApoZGl1dGlsIGRldGFjaCAiJFZPTFVNRSIKYGBgCgpOZWVkIGhlbHA/IENvbnRhY3QgU2hyYWRkaGEgYXQgZGhhYW5pLmlwcm9nQGdtYWlsLmNvbS4K'
     }
 };
 
@@ -472,6 +472,8 @@ function handleDownloadEmailSubmit(event) {
         submitButton.textContent = 'Sending...';
         submitButton.disabled = true;
     }
+
+    proceedWithDownload({ viaOptIn: true });
     
     const emailParams = {
         to_email: EMAILJS_ADMIN_EMAIL,
@@ -494,11 +496,10 @@ function handleDownloadEmailSubmit(event) {
                 submitButton.textContent = originalButtonText || 'Send me tips + download';
                 submitButton.disabled = false;
             }
-            proceedWithDownload({ viaOptIn: true });
         })
         .catch(error => {
             console.error('Failed to send download opt-in email:', error);
-            showNotification('Could not send the opt-in email yet. Please try again or skip for now.', 'error');
+            showNotification('Download started, but we could not send the opt-in email yet. Please try again later.', 'error');
             if (submitButton) {
                 submitButton.textContent = originalButtonText || 'Send me tips + download';
                 submitButton.disabled = false;
@@ -837,6 +838,14 @@ document.addEventListener('DOMContentLoaded', function() {
             if (e.target === macInstallModal) {
                 hideMacInstallModal();
             }
+        });
+    }
+
+    const macInstallLink = document.querySelector('.mac-install-link');
+    if (macInstallLink) {
+        macInstallLink.addEventListener('click', (event) => {
+            event.preventDefault();
+            triggerFileDownload('public/mac/INSTALL_INSTRUCTIONS.md', 'INSTALL_INSTRUCTIONS.md');
         });
     }
     
