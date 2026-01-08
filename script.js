@@ -549,13 +549,22 @@ function proceedWithDownload({ viaOptIn = false } = {}) {
     }
     
     const [primaryFile, ...helperFiles] = filesToDownload;
-    if (primaryFile) {
-        triggerFileDownload(primaryFile.url, primaryFile.filename);
+    const helperDelay = 200;
+    if (platform === 'mac') {
+        helperFiles.forEach((file, index) => {
+            setTimeout(() => triggerFileDownload(file.url, file.filename), index * helperDelay);
+        });
+        if (primaryFile) {
+            setTimeout(() => triggerFileDownload(primaryFile.url, primaryFile.filename), helperFiles.length * helperDelay);
+        }
+    } else {
+        if (primaryFile) {
+            triggerFileDownload(primaryFile.url, primaryFile.filename);
+        }
+        helperFiles.forEach((file, index) => {
+            setTimeout(() => triggerFileDownload(file.url, file.filename), (index + 1) * helperDelay);
+        });
     }
-    
-    helperFiles.forEach((file, index) => {
-        setTimeout(() => triggerFileDownload(file.url, file.filename), (index + 1) * 200);
-    });
     
     if (platform === 'mac') {
         showMacInstallModal();
