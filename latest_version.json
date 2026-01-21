@@ -1,27 +1,22 @@
 {
-  "version": "1.0.0",
-  "releaseDate": "2026-01-06T00:00:00.000Z",
-  "releaseNotes": "Publishing Dhaani 1.0.0 installers for all platforms",
+  "version": "1.0.1",
+  "releaseDate": "2026-01-21T00:00:00.000Z",
+  "releaseNotes": "Publishing Dhaani 1.0.1 installers for all platforms",
   "platforms": {
     "mac-arm64": {
-      "url": "https://github.com/ShraddhaSurana/dhaani/releases/download/v1.0.0/Dhaani-1.0.0-arm64.dmg",
+      "url": "https://github.com/ShraddhaSurana/dhaani/releases/download/v1.0.1/Dhaani-1.0.1-arm64.dmg",
       "size": 0,
-      "checksum": ""
-    },
-    "mac-x64": {
-      "url": "https://github.com/ShraddhaSurana/dhaani/releases/download/v1.0.0/Dhaani-1.0.0.dmg",
-      "size": 0,
-      "checksum": ""
+      "checksum": "sha256:77e871b988827a2a9748910b4df62f8c3e6e1b8d50e0d5e72884edc171fc4d3c"
     },
     "windows": {
-      "url": "https://github.com/ShraddhaSurana/dhaani/releases/download/v1.0.0/Dhaani.Setup.1.0.0.exe",
+      "url": "https://github.com/ShraddhaSurana/dhaani/releases/download/v1.0.1/Dhaani.Setup.1.0.1.exe",
       "size": 0,
-      "checksum": ""
+      "checksum": "sha256:0c06ebd69f7e6552cc9c872aab937ffe2b75ab8a458ed767c0b60d7c2b3a217c"
     },
     "linux": {
-      "url": "https://github.com/ShraddhaSurana/dhaani/releases/download/v1.0.0/Dhaani-1.0.0.AppImage",
+      "url": "https://github.com/ShraddhaSurana/dhaani/releases/download/v1.0.1/Dhaani-1.0.1.AppImage",
       "size": 0,
-      "checksum": ""
+      "checksum": "sha256:7d6cec5e5ecfb259bfb9c623f3a3f2033543b5fc74bb51a1f89fd7ca58a91ee6"
     }
   },
   "minimumVersion": "0.1.0",
