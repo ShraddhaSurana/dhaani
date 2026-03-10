@@ -615,6 +615,11 @@ body {
     padding: 0 2rem;
 }
 
+.research .section-title {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
 .research-positioning {
     margin: 1.5rem 0 2rem;
     padding: 1.5rem;
@@ -634,7 +639,6 @@ body {
 .research-context {
     color: var(--text-secondary);
     line-height: 1.7;
-    max-width: 920px;
 }
 
 .research-context + .research-context {
@@ -649,6 +653,7 @@ body {
     border-radius: 0.75rem;
     color: var(--text-secondary);
     font-size: 0.95rem;
+    max-width: 72ch;
 }
 
 .research-cite-note a {
@@ -669,6 +674,7 @@ body {
     font-weight: 600;
     margin-bottom: 2rem;
     color: var(--text-primary);
+    text-align: left;
 }
 
 .paper-list {
@@ -679,7 +685,7 @@ body {
 
 .paper-link {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     padding: 1.5rem;
     background: var(--bg-secondary);
@@ -687,6 +693,11 @@ body {
     text-decoration: none;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid var(--border-light);
+    gap: 1rem;
+}
+
+.paper-info {
+    max-width: 62ch;
 }
 
 .paper-link:hover {
@@ -704,12 +715,15 @@ body {
 .paper-desc {
     color: var(--text-secondary);
     font-size: 0.9rem;
+    line-height: 1.6;
 }
 
 .paper-arrow {
     font-size: 1.5rem;
     color: var(--primary-teal);
     font-weight: 700;
+    line-height: 1;
+    margin-top: 0.1rem;
 }
 
 .research-highlights {
@@ -722,7 +736,7 @@ body {
     background: var(--gradient-light);
     padding: 1.5rem;
     border-radius: 0.75rem;
-    text-align: center;
+    text-align: left;
 }
 
 .highlight-title {
@@ -950,18 +964,36 @@ body {
 }
 
 .download-note {
-    max-width: 600px;
-    margin: 0 auto;
+    width: min(1040px, calc(100vw - 4rem));
+    max-width: none;
+    margin: 0;
+    margin-left: 50%;
+    transform: translateX(-50%);
     padding: 2rem;
     background: var(--gradient-light);
     border-radius: 1rem;
     border: 1px solid var(--border-light);
+    box-sizing: border-box;
 }
 
 .note-text {
     color: var(--text-primary);
     line-height: 1.6;
     font-size: 1.1rem;
+}
+
+.download-citation {
+    margin-top: 0.75rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.download-citation a {
+    color: var(--primary-teal);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 0.2rem;
 }
 
 .opt-in-modal {
@@ -1093,11 +1125,17 @@ body.modal-open {
     padding: 0 2rem;
 }
 
+.contact .section-title {
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
 .contact-subtitle {
-    text-align: center;
+    text-align: left;
     font-size: 1.25rem;
     color: var(--text-secondary);
     margin-bottom: 3rem;
+    max-width: 62ch;
 }
 
 .contact-content {
@@ -1167,6 +1205,7 @@ body.modal-open {
     background: var(--gradient-light);
     padding: 2rem;
     border-radius: 1rem;
+    text-align: left;
 }
 
 .author-title {
@@ -1178,8 +1217,9 @@ body.modal-open {
 
 .author-desc {
     color: var(--text-primary);
-    line-height: 1.6;
+    line-height: 1.75;
     margin-bottom: 2rem;
+    max-width: 62ch;
 }
 
 .author-highlights {
