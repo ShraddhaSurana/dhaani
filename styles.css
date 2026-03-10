@@ -759,7 +759,7 @@ body {
 }
 
 .download-container {
-    max-width: 800px;
+    max-width: 1120px;
     margin: 0 auto;
     padding: 0 2rem;
 }
@@ -769,6 +769,9 @@ body {
     color: var(--text-secondary);
     margin-bottom: 4rem;
     font-weight: 400;
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .opt-in-title {
@@ -964,11 +967,9 @@ body {
 }
 
 .download-note {
-    width: min(1040px, calc(100vw - 4rem));
-    max-width: none;
-    margin: 0;
-    margin-left: 50%;
-    transform: translateX(-50%);
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
     padding: 2rem;
     background: var(--gradient-light);
     border-radius: 1rem;
