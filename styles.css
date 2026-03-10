@@ -167,6 +167,38 @@ body {
     margin-right: auto;
 }
 
+.hero-intersection {
+    max-width: 760px;
+    margin: 0 auto 2.5rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border-light);
+    border-radius: 1rem;
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.08) 0%, rgba(14, 165, 233, 0.08) 100%);
+}
+
+.hero-intersection-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.hero-intersection-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.hero-intersection-list span {
+    padding: 0.6rem 1rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(20, 184, 166, 0.2);
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
 .hero-cta {
     display: flex;
     flex-direction: column;
@@ -581,6 +613,32 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
+}
+
+.research-positioning {
+    margin: 1.5rem 0 2rem;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(14, 165, 233, 0.08) 100%);
+    border: 1px solid rgba(20, 184, 166, 0.18);
+}
+
+.research-thesis {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.85rem;
+}
+
+.research-context {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    max-width: 920px;
+}
+
+.research-context + .research-context {
+    margin-top: 0.85rem;
 }
 
 .research-cite-note {
