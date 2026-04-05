@@ -519,8 +519,11 @@ function hydrateInstallInstructionsLink() {
     const link = document.getElementById('installInstructionsLink');
     if (!embedded || !link) return;
     try {
-        link.href = 'data:' + (embedded.mimeType || 'application/octet-stream') +
-            ';base64,' + embedded.base64;
+        const binary = atob(embedded.base64);
+        const bytes = new Uint8Array(binary.length);
+        for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+        const blob = new Blob([bytes], { type: embedded.mimeType || 'application/octet-stream' });
+        link.href = URL.createObjectURL(blob);
     } catch (_) {
         // leave the original relative href as fallback
     }
