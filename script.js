@@ -238,8 +238,8 @@ const DOWNLOAD_LINKS = {
     ],
     windows: [
         {
-            url: 'https://github.com/ShraddhaSurana/dhaani/releases/download/v1.0.1/Dhaani.Setup.1.0.1.exe',
-            filename: 'Dhaani.Setup.1.0.1.exe',
+            url: 'https://github.com/ShraddhaSurana/dhaani/releases/download/v1.0.1/Dhaani%20Setup%201.0.1.exe',
+            filename: 'Dhaani Setup 1.0.1.exe',
             label: 'Windows installer'
         }
     ],

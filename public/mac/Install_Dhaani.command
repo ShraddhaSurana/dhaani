@@ -2,7 +2,7 @@
 set -euo pipefail
 
 readonly DMG_FILENAME="Dhaani-1.0.1-arm64.dmg"
-readonly EXPECTED_DMG_SHA256="e16f5f2523b1e7e47f246b0948c6834ffddbf4b1250d2ba9a9bebd7b8e3f1495"
+readonly EXPECTED_DMG_SHA256="d566427d77d5488dcfcb8bc91315e6482be891352178679e315da09b64b87dd7"
 readonly EXPECTED_ARCH="arm64"
 readonly DEST_APP="/Applications/Dhaani.app"
 readonly STAGED_APP="/Applications/.Dhaani.install.$$"
