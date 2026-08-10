@@ -136,27 +136,24 @@ To add your YouTube demo video:
    </div>
    ```
 
-### 7. Download Links
+### 7. Desktop Release Flow
 
-Update the download buttons to point to your actual files:
+Desktop installers are built in the `dhani` application repository and hosted
+as GitHub Release assets in this `dhaani` website repository:
 
-```javascript
-// In script.js, update the trackDownload function
-function trackDownload(source, platform = null) {
-    analytics.trackDownload(source, platform);
-    
-    // Add your actual download URLs here
-    const downloadUrls = {
-        'mac': 'https://your-domain.com/downloads/dhaani-mac.dmg',
-        'windows': 'https://your-domain.com/downloads/dhaani-windows.exe',
-        'linux': 'https://your-domain.com/downloads/dhaani-linux.tar.gz'
-    };
-    
-    if (platform && downloadUrls[platform]) {
-        window.open(downloadUrls[platform], '_blank');
-    }
-}
-```
+1. Run the desktop release GitHub Actions workflow in `dhani`.
+2. Download the native macOS, Windows, and Linux workflow artifacts.
+3. Upload the installers to the matching GitHub Release in `dhaani`.
+4. Update the GitHub Release URLs in `DOWNLOAD_LINKS` inside `script.js` and in
+   `latest_version.json`.
+5. For macOS, copy the DMG SHA-256 into `latest_version.json` and
+   `public/mac/Install_Dhaani.command`.
+6. Commit and push the website changes. The Pages workflow packages the
+   site-hosted Mac helper as `Install_Dhaani.command.zip` so its executable
+   permission survives the browser download.
+
+The native installers remain GitHub Release assets. Only the Mac helper ZIP
+and installation instructions are served directly by GitHub Pages.
 
 ## Deployment
 

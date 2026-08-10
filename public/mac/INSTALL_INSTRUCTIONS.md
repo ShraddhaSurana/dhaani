@@ -1,26 +1,27 @@
-# Installing Dhaani on macOS
+# Installing Dhaani 1.0.1 on macOS
 
-Because Dhaani is not yet notarized by Apple, the installation needs an extra helper script.
+This release is for Apple Silicon Macs (M1, M2, M3, M4, or newer). Because it
+is not yet notarized by Apple, use the supplied verified installer helper.
 
-1. Download all three files: `Dhaani-1.0.1-arm64.dmg`, `Install_Dhaani.command`, and this `INSTALL_INSTRUCTIONS.md` file.
-2. Move the three files into the same folder (for example, your Downloads folder).
-3. Double-click `Install_Dhaani.command`. macOS may ask for confirmation because the file was downloaded from the internet—choose **Open**.
-4. When prompted, enter your administrator password so the script can copy `Dhaani.app` into `/Applications` and remove the Gatekeeper quarantine flag.
-5. Once the Terminal window says "Dhaani is installed", the app will launch automatically. You can then eject the mounted disk image.
+1. Download all three files: `Dhaani-1.0.1-arm64.dmg`,
+   `Install_Dhaani.command.zip`, and `INSTALL_INSTRUCTIONS.md`.
+2. Keep them in the same folder, such as Downloads, then double-click the ZIP
+   to extract `Install_Dhaani.command` beside the DMG.
+3. Control-click `Install_Dhaani.command`, choose **Open**, then confirm **Open**.
+4. The helper verifies the exact DMG checksum, app signature, and architecture
+   before removing quarantine. Enter your administrator password if prompted.
+5. Wait for `Dhaani is installed and will now launch.` in Terminal.
 
-Manual install (if you prefer not to run the script):
+If macOS will not open the helper, open Terminal and run:
 
 ```bash
-xattr -dr com.apple.quarantine Dhaani-1.0.1-arm64.dmg 2>/dev/null || true
-hdiutil attach -nobrowse Dhaani-1.0.1-arm64.dmg
-VOLUME="/Volumes/Dhaani"
-if [ ! -d "$VOLUME" ]; then
-  VOLUME=$(ls -d /Volumes/Dhaani* 2>/dev/null | head -n 1 || true)
-fi
-cp -R "$VOLUME/Dhaani.app" /Applications
-xattr -dr com.apple.quarantine /Applications/Dhaani.app
-open /Applications/Dhaani.app
-hdiutil detach "$VOLUME"
+cd ~/Downloads
+chmod +x Install_Dhaani.command
+xattr -d com.apple.quarantine Install_Dhaani.command 2>/dev/null || true
+./Install_Dhaani.command
 ```
+
+The installer stops without changing `/Applications` if the DMG checksum,
+signature, or architecture is wrong. Do not bypass a checksum failure.
 
 Need help? Contact Shraddha at dhaani.iprog@gmail.com.

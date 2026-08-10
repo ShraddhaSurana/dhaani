@@ -226,9 +226,9 @@ const DOWNLOAD_LINKS = {
             label: 'Dhaani macOS installer (DMG)'
         },
         {
-            url: 'public/mac/Install_Dhaani.command',
-            filename: 'Install_Dhaani.command',
-            label: 'Helper installer script'
+            url: 'public/mac/Install_Dhaani.command.zip',
+            filename: 'Install_Dhaani.command.zip',
+            label: 'Verified helper installer'
         },
         {
             url: 'public/mac/INSTALL_INSTRUCTIONS.md',
@@ -252,20 +252,6 @@ const DOWNLOAD_LINKS = {
     ]
 };
 const UNAVAILABLE_PLATFORM_MESSAGES = {};
-// Keep base64 payloads in sync with the helper artifacts inside public/mac
-const EMBEDDED_HELPER_FILES = {
-    'public/mac/Install_Dhaani.command': {
-        filename: 'Install_Dhaani.command',
-        mimeType: 'text/plain',
-        base64: 'IyEvYmluL3pzaApzZXQgLWV1byBwaXBlZmFpbAoKZWNobyAiRGhhYW5pIGluc3RhbGxlciAob25lLXRpbWUgc2V0dXApIgoKIyBMb2NhdGUgRE1HOiBhcmcgPiBEaGFhbmkuZG1nIG5leHQgdG8gdGhpcyBzY3JpcHQgPiBuZXdlc3QgRGhhYW5pKi5kbWcgbmV4dCB0byB0aGlzIHNjcmlwdApTQ1JJUFRfRElSPSIkKCBjZCAiJCggZGlybmFtZSAiJHtCQVNIX1NPVVJDRVswXTotJDB9IiApIiAmPiAvZGV2L251bGwgJiYgcHdkICkiCkRNR19QQVRIPSIkezE6LSRTQ1JJUFRfRElSL0RoYWFuaS5kbWd9IgppZiBbICEgLWYgIiRETUdfUEFUSCIgXTsgdGhlbgogIENBTkRJREFURT0kKGxzIC10ICIkU0NSSVBUX0RJUiIvRGhhYW5pKi5kbWcgMj4vZGV2L251bGwgfCBoZWFkIC1uIDEgfHwgdHJ1ZSkKICBpZiBbIC1uICIke0NBTkRJREFURTotfSIgXTsgdGhlbgogICAgRE1HX1BBVEg9IiRDQU5ESURBVEUiCiAgZmkKZmkKCmlmIFsgISAtZiAiJERNR19QQVRIIiBdOyB0aGVuCiAgZWNobyAiQ291bGQgbm90IGZpbmQgRGhhYW5pLmRtZy4gUGxhY2UgaXQgbmV4dCB0byBJbnN0YWxsX0RoYWFuaS5jb21tYW5kIG9yIHBhc3MgYSBwYXRoOiIKICBlY2hvICIgIC4vSW5zdGFsbF9EaGFhbmkuY29tbWFuZCAvcGF0aC90by9EaGFhbmkuZG1nIgogIGV4aXQgMQpmaQoKZWNobyAiVXNpbmcgRE1HOiAkRE1HX1BBVEgiCgojIFJlbW92ZSBxdWFyYW50aW5lIGZyb20gRE1HIGFuZCBtb3VudAp4YXR0ciAtZHIgY29tLmFwcGxlLnF1YXJhbnRpbmUgIiRETUdfUEFUSCIgMj4vZGV2L251bGwgfHwgdHJ1ZQpoZGl1dGlsIGF0dGFjaCAtbm9icm93c2UgIiRETUdfUEFUSCIKc2xlZXAgMgoKIyBSZXNvbHZlIG1vdW50ZWQgdm9sdW1lIHBhdGgKVk9MPSIvVm9sdW1lcy9EaGFhbmkiCmlmIFsgISAtZCAiJFZPTCIgXTsgdGhlbgogIFZPTD0kKGxzIC1kIC9Wb2x1bWVzL0RoYWFuaSogMj4vZGV2L251bGwgfCBoZWFkIC1uIDEgfHwgdHJ1ZSkKZmkKCmlmIFsgISAtZCAiJFZPTCIgXTsgdGhlbgogIGVjaG8gIkZhaWxlZCB0byBsb2NhdGUgbW91bnRlZCB2b2x1bWUuIElzIHRoZSBETUcgbW91bnRlZD8iCiAgZXhpdCAxCmZpCgplY2hvICJNb3VudGVkIGF0OiAkVk9MIgoKIyBDb3B5IGFwcCB0byBBcHBsaWNhdGlvbnMKY3AgLVIgIiRWT0wvRGhhYW5pLmFwcCIgL0FwcGxpY2F0aW9ucwoKIyBSZW1vdmUgcXVhcmFudGluZSBvbiB0aGUgYXBwIGFuZCBvcGVuIGl0CnhhdHRyIC1kciBjb20uYXBwbGUucXVhcmFudGluZSAvQXBwbGljYXRpb25zL0RoYWFuaS5hcHAgMj4vZGV2L251bGwgfHwgdHJ1ZQoKIyBEZXRhY2ggdm9sdW1lCmhkaXV0aWwgZGV0YWNoICIkVk9MIiAyPi9kZXYvbnVsbCB8fCB0cnVlCgplY2hvICJMYXVuY2hpbmcgRGhhYW5pLi4uIgpvcGVuIC9BcHBsaWNhdGlvbnMvRGhhYW5pLmFwcAoKZWNobyAiRG9uZS4gWW91IGNhbiBub3cgdXNlIERoYWFuaSBmcm9tIEFwcGxpY2F0aW9ucy4iCg=='
-    },
-    'public/mac/INSTALL_INSTRUCTIONS.md': {
-        filename: 'INSTALL_INSTRUCTIONS.md',
-        mimeType: 'text/markdown',
-        base64: 'IyBJbnN0YWxsaW5nIERoYWFuaSBvbiBtYWNPUwoKQmVjYXVzZSBEaGFhbmkgaXMgbm90IHlldCBub3Rhcml6ZWQgYnkgQXBwbGUsIHRoZSBpbnN0YWxsYXRpb24gbmVlZHMgYW4gZXh0cmEgaGVscGVyIHNjcmlwdC4KCjEuIERvd25sb2FkIGFsbCB0aHJlZSBmaWxlczogYERoYWFuaS0xLjAuMS1hcm02NC5kbWdgLCBgSW5zdGFsbF9EaGFhbmkuY29tbWFuZGAsIGFuZCB0aGlzIGBJTlNUQUxMX0lOU1RSVUNUSU9OUy5tZGAgZmlsZS4KMi4gTW92ZSB0aGUgdGhyZWUgZmlsZXMgaW50byB0aGUgc2FtZSBmb2xkZXIgKGZvciBleGFtcGxlLCB5b3VyIERvd25sb2FkcyBmb2xkZXIpLgozLiBEb3VibGUtY2xpY2sgYEluc3RhbGxfRGhhYW5pLmNvbW1hbmRgLiBtYWNPUyBtYXkgYXNrIGZvciBjb25maXJtYXRpb24gYmVjYXVzZSB0aGUgZmlsZSB3YXMgZG93bmxvYWRlZCBmcm9tIHRoZSBpbnRlcm5ldOKAlGNob29zZSAqKk9wZW4qKi4KNC4gV2hlbiBwcm9tcHRlZCwgZW50ZXIgeW91ciBhZG1pbmlzdHJhdG9yIHBhc3N3b3JkIHNvIHRoZSBzY3JpcHQgY2FuIGNvcHkgYERoYWFuaS5hcHBgIGludG8gYC9BcHBsaWNhdGlvbnNgIGFuZCByZW1vdmUgdGhlIEdhdGVrZWVwZXIgcXVhcmFudGluZSBmbGFnLgo1LiBPbmNlIHRoZSBUZXJtaW5hbCB3aW5kb3cgc2F5cyAiRGhhYW5pIGlzIGluc3RhbGxlZCIsIHRoZSBhcHAgd2lsbCBsYXVuY2ggYXV0b21hdGljYWxseS4gWW91IGNhbiB0aGVuIGVqZWN0IHRoZSBtb3VudGVkIGRpc2sgaW1hZ2UuCgpNYW51YWwgaW5zdGFsbCAoaWYgeW91IHByZWZlciBub3QgdG8gcnVuIHRoZSBzY3JpcHQpOgoKYGBgYmFzaAp4YXR0ciAtZHIgY29tLmFwcGxlLnF1YXJhbnRpbmUgRGhhYW5pLTEuMC4xLWFybTY0LmRtZyAyPi9kZXYvbnVsbCB8fCB0cnVlCmhkaXV0aWwgYXR0YWNoIC1ub2Jyb3dzZSBEaGFhbmktMS4wLjEtYXJtNjQuZG1nClZPTFVNRT0iL1ZvbHVtZXMvRGhhYW5pIgppZiBbICEgLWQgIiRWT0xVTUUiIF07IHRoZW4KICBWT0xVTUU9JChscyAtZCAvVm9sdW1lcy9EaGFhbmkqIDI+L2Rldi9udWxsIHwgaGVhZCAtbiAxIHx8IHRydWUpCmZpCmNwIC1SICIkVk9MVU1FL0RoYWFuaS5hcHAiIC9BcHBsaWNhdGlvbnMKeGF0dHIgLWRyIGNvbS5hcHBsZS5xdWFyYW50aW5lIC9BcHBsaWNhdGlvbnMvRGhhYW5pLmFwcApvcGVuIC9BcHBsaWNhdGlvbnMvRGhhYW5pLmFwcApoZGl1dGlsIGRldGFjaCAiJFZPTFVNRSIKYGBgCgpOZWVkIGhlbHA/IENvbnRhY3QgU2hyYWRkaGEgYXQgZGhhYW5pLmlwcm9nQGdtYWlsLmNvbS4K'
-    }
-};
-
 function ensureYouTubeAPI(callback) {
     if (window.YT && typeof window.YT.Player === 'function') {
         callback();
@@ -515,18 +501,8 @@ function handleDownloadSkip() {
 }
 
 function hydrateInstallInstructionsLink() {
-    const embedded = EMBEDDED_HELPER_FILES['public/mac/INSTALL_INSTRUCTIONS.md'];
     const link = document.getElementById('installInstructionsLink');
-    if (!embedded || !link) return;
-    try {
-        const binary = atob(embedded.base64);
-        const bytes = new Uint8Array(binary.length);
-        for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
-        const blob = new Blob([bytes], { type: embedded.mimeType || 'application/octet-stream' });
-        link.href = URL.createObjectURL(blob);
-    } catch (_) {
-        // leave the original relative href as fallback
-    }
+    if (link) link.href = 'public/mac/INSTALL_INSTRUCTIONS.md';
 }
 
 function proceedWithDownload({ viaOptIn = false } = {}) {
@@ -601,11 +577,6 @@ function triggerFileDownload(url, filename) {
         return;
     }
     
-    const embedded = EMBEDDED_HELPER_FILES[url];
-    if (embedded && downloadEmbeddedFile(embedded, filename)) {
-        return;
-    }
-    
     try {
         const resolvedUrl = new URL(url, window.location.href).toString();
         if (isSameOrigin(resolvedUrl)) {
@@ -634,22 +605,6 @@ function downloadSameOriginFile(url, filename) {
             console.error('Failed to stream download, falling back to direct link:', url, error);
             openDownloadWindow(url);
         });
-}
-
-function downloadEmbeddedFile(embedded, filenameOverride) {
-    try {
-        const binary = atob(embedded.base64);
-        const buffer = new Uint8Array(binary.length);
-        for (let i = 0; i < binary.length; i++) {
-            buffer[i] = binary.charCodeAt(i);
-        }
-        const blob = new Blob([buffer], { type: embedded.mimeType || 'application/octet-stream' });
-        triggerBlobDownload(blob, filenameOverride || embedded.filename);
-        return true;
-    } catch (error) {
-        console.error('Failed to use embedded helper file data:', error);
-        return false;
-    }
 }
 
 function triggerBlobDownload(blob, filename) {
