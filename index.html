@@ -432,9 +432,10 @@
             <h3 class="opt-in-title" id="macInstallTitle">Finish installing on macOS</h3>
             <p class="mac-install-lede">
                 Keep <strong>Dhaani-1.0.1-arm64.dmg</strong>, <strong>Install_Dhaani.command.zip</strong>, and <strong>INSTALL_INSTRUCTIONS.md</strong> in the same folder.
-                Open the ZIP, then Control-click <strong>Install_Dhaani.command</strong>, choose <strong>Open</strong>, and confirm.
+                Open the ZIP, then double-click <strong>Install_Dhaani.command</strong>. If macOS shows only <strong>Done</strong> and <strong>Move to Bin</strong>, click <strong>Done</strong>, open <strong>System Settings → Privacy &amp; Security</strong>, scroll to <strong>Security</strong>, and click <strong>Open Anyway</strong>.
             </p>
             <ul class="mac-install-list">
+                <li>Authenticate when prompted, then confirm <strong>Open</strong>. The Open Anyway option remains available for about one hour after the blocked launch.</li>
                 <li>The helper verifies the DMG checksum, app signature, and Apple Silicon architecture before changing anything.</li>
                 <li>It copies Dhaani.app into <code>/Applications</code>, asks for an administrator password when needed, and then removes quarantine.</li>
                 <li>If the helper script won't run, <strong>INSTALL_INSTRUCTIONS.md</strong> has the Terminal commands you can copy-paste yourself.</li>

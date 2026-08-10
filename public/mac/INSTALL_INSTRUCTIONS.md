@@ -7,10 +7,16 @@ is not yet notarized by Apple, use the supplied verified installer helper.
    `Install_Dhaani.command.zip`, and `INSTALL_INSTRUCTIONS.md`.
 2. Keep them in the same folder, such as Downloads, then double-click the ZIP
    to extract `Install_Dhaani.command` beside the DMG.
-3. Control-click `Install_Dhaani.command`, choose **Open**, then confirm **Open**.
-4. The helper verifies the exact DMG checksum, app signature, and architecture
+3. Double-click `Install_Dhaani.command`. If macOS displays
+   **“Install_Dhaani.command” Not Opened** with only **Done** and
+   **Move to Bin**, click **Done**.
+4. Open **System Settings → Privacy & Security**, scroll down to **Security**,
+   and click **Open Anyway** for `Install_Dhaani.command`. This option is
+   available for about one hour after the blocked launch.
+5. Enter your login password when prompted, then confirm **Open**.
+6. The helper verifies the exact DMG checksum, app signature, and architecture
    before removing quarantine. Enter your administrator password if prompted.
-5. Wait for `Dhaani is installed and will now launch.` in Terminal.
+7. Wait for `Dhaani is installed and will now launch.` in Terminal.
 
 If macOS will not open the helper, open Terminal and run:
 
