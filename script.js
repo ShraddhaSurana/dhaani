@@ -614,7 +614,9 @@ function triggerBlobDownload(blob, filename) {
 }
 
 function openDownloadWindow(url) {
-    clickHiddenLink(url, null, '_blank');
+    // Use the current browsing context so popup blockers do not suppress
+    // downloads triggered after the optional email modal closes.
+    clickHiddenLink(url, null, '_self');
 }
 
 function clickHiddenLink(href, filename, target = '_self') {
