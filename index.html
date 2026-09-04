@@ -34,8 +34,8 @@
             </div>
             <div class="nav-links">
                 <a href="#features" class="nav-link">Features</a>
-                <a href="#how-it-works" class="nav-link">How It Works</a>
-                <a href="#use-cases" class="nav-link">Use Cases</a>
+                <a href="#capabilities" class="nav-link">Capabilities</a>
+                <a href="#get-started" class="nav-link">Get Started</a>
                 <a href="#research" class="nav-link">Research</a>
                 <a href="#download" class="nav-link cta-link">Download</a>
             </div>
@@ -64,6 +64,7 @@
                         <span>Program synthesis</span>
                         <span>Software engineering</span>
                         <span>Human-AI collaboration</span>
+                        <span>Legacy modernization</span>
                     </div>
                 </div>
                 <div class="hero-cta">
@@ -163,6 +164,57 @@
         </div>
     </section>
 
+    <!-- Product Capabilities Section -->
+    <section class="product-support" id="capabilities">
+        <div class="product-support-container">
+            <h2 class="section-title">Build New Software or Modernize Existing Code</h2>
+            <p class="section-intro">
+                Dhaani uses an inspectable data-flow representation to keep AI-assisted development structured, modular, and reviewable.
+            </p>
+            <div class="capabilities-grid">
+                <article class="capability-card">
+                    <p class="capability-eyebrow">Program synthesis</p>
+                    <h3>Python and .NET support</h3>
+                    <p>Create new projects in Python or .NET 8/C#. Dhaani works with you to create a Data Flow Diagram and turns the reviewed data flow diagram into modules, then lets you run, inspect, and refine each result.</p>
+                    <ul class="capability-list">
+                        <li>Python modules and uv-backed execution</li>
+                        <li>SDK-style .NET 8 projects and C# modules (the .NET 8 SDK is required to run them)</li>
+                        <li>Once you accept a module, work on another module does not change its code—keeping the system modular and maintainable by design</li>
+                        <li>The DFD stays tied to the generated code as living documentation, making the codebase easier for people to understand</li>
+                    </ul>
+                    <div class="capability-research">
+                        <p class="capability-research-title">Related research</p>
+                        <div class="capability-paper">
+                            <span>Scientific data-analysis systems</span>
+                            <a href="https://link.springer.com/chapter/10.1007/978-3-032-28110-4_14#citeas" target="_blank" rel="noreferrer" onclick="trackPaperClick('caise-2026-capabilities')">Springer</a>
+                            <a href="https://arxiv.org/abs/2503.14488" target="_blank" rel="noreferrer" onclick="trackPaperClick('2503.14488-capabilities')">arXiv →</a>
+                        </div>
+                        <div class="capability-paper">
+                            <span>Structured program synthesis: IPARC Challenge</span>
+                            <a href="https://arxiv.org/abs/2506.13820" target="_blank" rel="noreferrer" onclick="trackPaperClick('2506.13820-capabilities')">arXiv →</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="capability-card capability-card-featured">
+                    <p class="capability-eyebrow">Repository migration</p>
+                    <h3>Fortran repositories to Python</h3>
+                    <p>Analyze a Fortran repository, construct an annotated data flow diagram, and generate a dependency-aware Python repository while preserving an inspectable intermediate representation.</p>
+                    <ul class="capability-list">
+                        <li>Static and trace analysis capture repository structure, interfaces, and expected behavior before translation</li>
+                        <li>Dependency-aware generation works in bounded groups to preserve cross-module references and produce readable Python</li>
+                    </ul>
+                    <div class="capability-research">
+                        <p class="capability-research-title">Related research</p>
+                        <div class="capability-paper">
+                            <span>Latent representations for repository migration</span>
+                            <a href="https://arxiv.org/pdf/2608.23619" target="_blank" rel="noreferrer" onclick="trackPaperClick('2608.23619-capabilities')">arXiv →</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
     <!-- How It Works Section -->
     <section class="how-it-works" id="how-it-works">
         <div class="how-it-works-container">
@@ -226,6 +278,72 @@
                     <h3 class="use-case-title">Research Challenges</h3>
                     <p class="use-case-desc">Tackle complex problems like the IPARC challenge with innovative approaches.</p>
                 </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon">🏗️</div>
+                    <h3 class="use-case-title">Legacy Modernization</h3>
+                    <p class="use-case-desc">Understand and migrate legacy repositories through an inspectable data-flow representation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Getting Started Section -->
+    <section class="quick-start" id="get-started">
+        <div class="quick-start-container">
+            <h2 class="section-title">Install and Run Your First Project</h2>
+            <p class="section-intro">The desktop app bundles its runtime, so you do not need to install Python or Node.js separately.</p>
+
+            <ol class="quick-start-grid">
+                <li class="quick-start-card">
+                    <span class="quick-start-number">1</span>
+                    <h3>Install for your operating system</h3>
+                    <ul>
+                        <li><strong>macOS (Apple Silicon):</strong> download the DMG, helper ZIP, and instructions together. Open the ZIP and run <code>Install_Dhaani.command</code>.</li>
+                        <li><strong>Windows x64:</strong> run <code>Dhaani Setup 1.0.1.exe</code> and follow the installer.</li>
+                        <li><strong>Linux x64:</strong> make <code>Dhaani-1.0.1.AppImage</code> executable, then open it.</li>
+                    </ul>
+                </li>
+                <li class="quick-start-card">
+                    <span class="quick-start-number">2</span>
+                    <h3>Configure a model provider</h3>
+                    <p>Launch Dhaani. On the first run, open <strong>Settings → LLM Provider</strong>. Select a provider and model, enter the required API key or endpoint, click <strong>Test Provider</strong>, then <strong>Save Settings</strong>.</p>
+                    <p class="quick-start-note">Supported choices include Azure OpenAI, OpenAI, Anthropic, Google Gemini, local Ollama and more. Ollama does not require an API key, but its service and selected model must already be running locally.</p>
+                </li>
+                <li class="quick-start-card">
+                    <span class="quick-start-number">3</span>
+                    <h3>Open a bundled example</h3>
+                    <p>On the Projects page, find <strong>Demo Projects</strong> and click <strong>Try this demo</strong>. Dhaani creates a working copy, so the bundled example remains unchanged.</p>
+                </li>
+                <li class="quick-start-card">
+                    <span class="quick-start-number">4</span>
+                    <h3>Create your own project</h3>
+                    <p>Choose Python or .NET when creating the project, describe the requirement, review the proposed data flow diagram, and then generate and refine its modules.</p>
+                </li>
+            </ol>
+
+            <div class="troubleshooting">
+                <div class="troubleshooting-heading">
+                    <p class="capability-eyebrow">Basic troubleshooting</p>
+                    <h3>Common first-run fixes</h3>
+                </div>
+                <div class="troubleshooting-grid">
+                    <div>
+                        <h4>Provider test fails</h4>
+                        <p>Recheck the provider, model name, API key, endpoint, and internet connection. For Ollama, confirm the service is running and the model is installed.</p>
+                    </div>
+                    <div>
+                        <h4>Rate limit or timeout</h4>
+                        <p>Wait briefly and retry. If the request is large, shorten it or select a provider/model with a larger context window.</p>
+                    </div>
+                    <div>
+                        <h4>macOS blocks the helper</h4>
+                        <p>Open <strong>System Settings → Privacy &amp; Security</strong>, find the blocked helper, and choose <strong>Open Anyway</strong>.</p>
+                    </div>
+                    <div>
+                        <h4>Linux AppImage will not open</h4>
+                        <p>Run <code>chmod +x Dhaani-1.0.1.AppImage</code>, then launch it again. Also check that AppImage/FUSE support is available on your distribution.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -241,39 +359,58 @@
                 <p class="research-context">
                     iProg revisits structured inductive programming in the LLM era, using language models not as autonomous end-to-end programmers, but as proposal generators within a human-ratified decomposition-and-synthesis process.
                 </p>
-                <p class="research-context">
-                    The latest paper presents one of the cleanest structured approaches for building reliable LLM-assisted software systems from natural-language requirements.
-                </p>
             </div>
             <div class="research-content">
                 <div class="research-papers">
                     <h3 class="research-subtitle">Published Papers</h3>
                     <div class="paper-list">
-                        <a href="https://arxiv.org/abs/2503.14488" target="_blank" class="paper-link" onclick="trackPaperClick('2503.14488')">
+                        <article class="paper-link paper-link-featured paper-entry">
+                            <div class="paper-info">
+                                <h4 class="paper-title">Identifying Latent Declarative Representations of Code for Assisting Repository Migration</h4>
+                                <p class="paper-desc">Evaluates annotated-data-flow-mediated migration across 50 Fortran repositories converted to Python.</p>
+                            </div>
+                            <div class="paper-actions">
+                                <a href="https://arxiv.org/abs/2608.23619" target="_blank" rel="noreferrer" onclick="trackPaperClick('2608.23619')">arXiv →</a>
+                            </div>
+                        </article>
+                        <article class="paper-link paper-entry">
                             <div class="paper-info">
                                 <h4 class="paper-title">Engineering Systems for Data Analysis Using Interactive Structured Inductive Programming</h4>
-                                <p class="paper-desc">arXiv v3 and accepted at CAiSE 2026; introduces iProg's structured decomposition and human-ratified synthesis workflow</p>
+                                <p class="paper-desc">Published in the <em>Advanced Information Systems Engineering</em> proceedings of CAiSE 2026; introduces iProg's structured decomposition and human-ratified synthesis workflow.</p>
                             </div>
-                            <div class="paper-arrow">→</div>
-                        </a>
-                        <a href="https://www.arxiv.org/abs/2506.13820" target="_blank" class="paper-link" onclick="trackPaperClick('2506.13820')">
+                            <div class="paper-actions">
+                                <a href="https://link.springer.com/chapter/10.1007/978-3-032-28110-4_14#citeas" target="_blank" rel="noreferrer" onclick="trackPaperClick('caise-2026')">Springer →</a>
+                                <a href="https://arxiv.org/abs/2503.14488" target="_blank" rel="noreferrer" onclick="trackPaperClick('2503.14488')">arXiv →</a>
+                            </div>
+                        </article>
+                        <article class="paper-link paper-entry">
                             <div class="paper-info">
-                                <h4 class="paper-title">IPARC Challenge Solution</h4>
-                                <p class="paper-desc">Accepted paper at IJCLR conference</p>
+                                <h4 class="paper-title">Structured Program Synthesis using LLMs: Results and Insights from the IPARC Challenge</h4>
+                                <p class="paper-desc">Studies a 600-task benchmark and reports successful synthesis across sequence, selection, and iteration categories.</p>
                             </div>
-                            <div class="paper-arrow">→</div>
-                        </a>
+                            <div class="paper-actions">
+                                <a href="https://arxiv.org/abs/2506.13820" target="_blank" rel="noreferrer" onclick="trackPaperClick('2506.13820')">arXiv →</a>
+                            </div>
+                        </article>
                     </div>
                 </div>
                 <div class="research-highlights">
                     <h3 class="research-subtitle">Research Highlights</h3>
                     <div class="highlight-card">
-                        <h4 class="highlight-title">Latest Acceptance</h4>
-                        <p class="highlight-desc">CAiSE 2026</p>
+                        <h4 class="highlight-title">Repository-scale Evaluation</h4>
+                        <p class="highlight-desc">50 Fortran repositories migrated to Python in the f2x50 benchmark</p>
                     </div>
                     <div class="highlight-card">
-                        <h4 class="highlight-title">Challenge Paper</h4>
-                        <p class="highlight-desc">IPARC at IJCLR</p>
+                        <h4 class="highlight-title">Behavioral Agreement</h4>
+                        <p class="highlight-desc">85.6% across 382 planned source-oracle probes in the migration study</p>
+                    </div>
+                    <div class="highlight-card">
+                        <h4 class="highlight-title">Scientific Systems</h4>
+                        <p class="highlight-desc">CAiSE 2026 evaluations in astrophysics and biochemistry showed better performance, higher code quality, and order-of-magnitude faster development than low-code/no-code alternatives</p>
+                    </div>
+                    <div class="highlight-card">
+                        <h4 class="highlight-title">IPARC Program Synthesis</h4>
+                        <p class="highlight-desc">Solved tasks across sequence, selection, and iteration categories while demonstrating the value of prior structuring, human refinement, and code reuse</p>
                     </div>
                 </div>
             </div>
@@ -284,18 +421,22 @@
     <section class="download" id="download">
         <div class="download-container">
             <h2 class="section-title">Download Dhaani</h2>
-            <p class="download-subtitle">From specifications to code: design your data flow diagram, then generate modular Python code. Keep control, accountability and transparency.</p>
+            <p class="download-subtitle">From specifications to code: design your data flow diagram, then generate modular Python/ .NET code or migrate Fortran repositories to Python on macOS, Windows, and Linux. Keep control, accountability and transparency.</p>
             
             <div class="download-requirements">
                 <h3 class="requirements-title">Requirements</h3>
                 <div class="requirements-list">
                     <div class="requirement-item">
-                        <span class="requirement-icon">🐍</span>
-                        <span class="requirement-text">Python applications only (for now)</span>
+                        <span class="requirement-icon">⌨️</span>
+                        <span class="requirement-text">Python and .NET 8/C# projects</span>
                     </div>
                     <div class="requirement-item">
                         <span class="requirement-icon">🔑</span>
-                        <span class="requirement-text">LLM API key or local Ollama installation</span>
+                        <span class="requirement-text">A model-provider account/API key or local Ollama</span>
+                    </div>
+                    <div class="requirement-item">
+                        <span class="requirement-icon">🧰</span>
+                        <span class="requirement-text">.NET 8 SDK required to run generated C# projects</span>
                     </div>
                 </div>
             </div>
@@ -314,16 +455,19 @@
                 <div class="platform-card" onclick="handleDownloadClick(event, 'mac')">
                     <div class="platform-icon">🍎</div>
                     <h3 class="platform-name">macOS</h3>
+                    <p class="platform-support">Apple Silicon (arm64) · DMG</p>
                     <button class="platform-btn">Download for Mac</button>
                 </div>
                 <div class="platform-card" onclick="handleDownloadClick(event, 'windows')">
                     <div class="platform-icon">🪟</div>
                     <h3 class="platform-name">Windows</h3>
+                    <p class="platform-support">64-bit · Setup EXE</p>
                     <button class="platform-btn">Download for Windows</button>
                 </div>
                 <div class="platform-card" onclick="handleDownloadClick(event, 'linux')">
                     <div class="platform-icon">🐧</div>
                     <h3 class="platform-name">Linux</h3>
+                    <p class="platform-support">64-bit · AppImage</p>
                     <button class="platform-btn">Download for Linux</button>
                 </div>
             </div>
@@ -333,8 +477,12 @@
                     <strong>Note:</strong> Dhaani is free for everyone to use. Download and start building your next project today!
                 </p>
                 <p class="download-citation">
-                    If you use this tool, please cite <em>Engineering Systems for Data Analysis Using Interactive Structured Inductive Programming</em>.
-                    <a href="https://arxiv.org/bibtex/2503.14488" target="_blank" rel="noreferrer">View BibTeX</a>.
+                    Creating new projects with Dhaani? Please cite <em>Engineering Systems for Data Analysis Using Interactive Structured Inductive Programming</em>.
+                    <a href="https://citation-needed.springer.com/v2/references/10.1007/978-3-032-28110-4_14?flavour=citation&amp;format=bibtex" target="_blank" rel="noreferrer">BibTeX</a>.
+                </p>
+                <p class="download-citation">
+                    Using Dhaani for legacy modernization? Please cite <em>Identifying Latent Declarative Representations of Code for Assisting Repository Migration</em>.
+                    <a href="https://arxiv.org/bibtex/2608.23619" target="_blank" rel="noreferrer">BibTeX</a>.
                 </p>
             </div>
         </div>
@@ -390,7 +538,7 @@
                             </div>
                             <div class="author-highlight">
                                 <span class="highlight-icon">📚</span>
-                                <span class="highlight-text">148 Citations</span>
+                                <span class="highlight-text">169 Citations</span>
                             </div>
                         </div>
                         <div class="author-links">
@@ -456,8 +604,8 @@
                 </div>
                 <div class="footer-links">
                     <a href="#features" class="footer-link">Features</a>
-                    <a href="#how-it-works" class="footer-link">How It Works</a>
-                    <a href="#use-cases" class="footer-link">Use Cases</a>
+                    <a href="#capabilities" class="footer-link">Capabilities</a>
+                    <a href="#get-started" class="footer-link">Get Started</a>
                     <a href="#research" class="footer-link">Research</a>
                     <a href="#download" class="footer-link">Download</a>
                     <a href="#contact" class="footer-link">Contact</a>
