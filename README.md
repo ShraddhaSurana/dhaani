@@ -139,50 +139,41 @@ To add your YouTube demo video:
 ### 7. Desktop Release Flow
 
 Desktop installers are built in the `dhani` application repository and hosted
-as GitHub Release assets in this `dhaani` website repository:
+as GitHub Release assets in this `dhaani` website repository. Use the release
+tool from the sibling `dhani` checkout:
 
-1. Run the desktop release GitHub Actions workflow in `dhani`.
-2. Download the native macOS, Windows, and Linux workflow artifacts.
-3. Upload the installers to the matching GitHub Release in `dhaani`.
-4. Update the GitHub Release URLs in `DOWNLOAD_LINKS` inside `script.js` and in
-   `latest_version.json`.
-5. For macOS, copy the DMG SHA-256 into `latest_version.json` and
-   `public/mac/Install_Dhaani.command`.
-6. Commit and push the website changes. The Pages workflow packages the
-   site-hosted Mac helper as `Install_Dhaani.command.zip` so its executable
-   permission survives the browser download.
+    cd ../dhani
+
+    # Before running the native builds:
+    ./scripts/desktop-release.js prepare \
+      --version 1.2.0 \
+      --notes "Short description of this release"
+
+    # After committing/pushing the preparation and downloading all four builds:
+    ./scripts/desktop-release.js publish \
+      --version 1.2.0 \
+      --artifacts /absolute/path/to/extracted-artifacts \
+      --dry-run
+    ./scripts/desktop-release.js publish \
+      --version 1.2.0 \
+      --artifacts /absolute/path/to/extracted-artifacts
+
+The tool verifies the artifacts and updates `latest_version.json`, the three
+download links in `script.js`, the Mac helper checksum and filename, the Mac
+instructions, and the filename shown in the installation modal. Add `--upload`
+to the final command to create/update the GitHub Release using an authenticated
+GitHub CLI, or upload the four installers and four `.sha256` files manually.
+Then review and commit the changes in each repository separately. The Pages
+workflow packages the site-hosted Mac helper as `Install_Dhaani.command.zip` so
+its executable permission survives the browser download.
 
 The native installers remain GitHub Release assets. Only the Mac helper ZIP
-and installation instructions are served directly by GitHub Pages.
-
-## Deployment
-
-### Static Hosting (Recommended)
-
-1. **Netlify**:
-   - Connect your GitHub repository
-   - Deploy automatically on push
-   - Includes form handling and analytics
-
-2. **Vercel**:
-   - Import your repository
-   - Automatic deployments
-   - Great for static sites
-
-3. **GitHub Pages**:
-   - Enable in repository settings
-   - Free hosting for public repositories
-
-### Custom Server
-
-Upload all files to your web server's public directory. Ensure:
-- All files maintain their relative paths
-- Server supports HTTPS (recommended)
-- Proper MIME types are configured
+and installation instructions are served directly by GitHub Pages. The Intel
+DMG is retained as a release asset but is not exposed on the website.
 
 ## Analytics & Metrics
 
-The website tracks key metrics for future commercialization:
+The website tracks key metrics:
 
 ### User Engagement
 - Page views and unique visitors
