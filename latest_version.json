@@ -1,22 +1,22 @@
 {
-  "version": "1.0.1",
-  "releaseDate": "2026-08-10T15:26:21.000Z",
-  "releaseNotes": "Publishing verified Dhaani 1.0.1 installers for all supported platforms",
+  "version": "1.0.2",
+  "releaseDate": "2026-10-07T09:44:57.326Z",
+  "releaseNotes": "Improved Build and Migrate workflows, editable module chat and structured interaction, AI review, and more reliable migration results.",
   "platforms": {
     "mac-arm64": {
-      "url": "https://github.com/ShraddhaSurana/dhaani/releases/download/v1.0.1/Dhaani-1.0.1-arm64.dmg",
-      "size": 242560383,
-      "checksum": "sha256:f912644c4cd000583c20c50c393725536b700d1501cb8eced9328582e16ba8b5"
+      "url": "https://github.com/ShraddhaSurana/dhaani/releases/download/v1.0.2/Dhaani-1.0.2-arm64.dmg",
+      "size": 245693073,
+      "checksum": "sha256:b4938aaf907b32ebc38d6532bdb51b47b5efb0d27740dd6a1a4508c89f016dde"
     },
     "windows": {
-      "url": "https://github.com/ShraddhaSurana/dhaani/releases/download/v1.0.1/Dhaani.Setup.1.0.1.exe",
-      "size": 195286434,
-      "checksum": "sha256:11ba6ce8c3ba2fcc48723c924e343d61f32894626304485030ce81d41b5ec72c"
+      "url": "https://github.com/ShraddhaSurana/dhaani/releases/download/v1.0.2/Dhaani.Setup.1.0.2.exe",
+      "size": 196750939,
+      "checksum": "sha256:44893d3ce32f858cbd8665afcc87e0a91c7c5f2b38989f3d6ed23066603a7ddb"
     },
     "linux": {
-      "url": "https://github.com/ShraddhaSurana/dhaani/releases/download/v1.0.1/Dhaani-1.0.1.AppImage",
-      "size": 262795396,
-      "checksum": "sha256:375d678c1f7a897ce004ab2729eaed7d95735ccaa05fcd0f93f42a3686377c54"
+      "url": "https://github.com/ShraddhaSurana/dhaani/releases/download/v1.0.2/Dhaani-1.0.2.AppImage",
+      "size": 266002435,
+      "checksum": "sha256:d8289aea71644e9af320ceda1e984592bd038f03f2cf48879f26d09cc5310ba2"
     }
   },
   "minimumVersion": "0.1.0",

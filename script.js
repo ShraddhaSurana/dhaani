@@ -221,8 +221,8 @@ const EMAILJS_ADMIN_EMAIL = 'dhaani.iprog@gmail.com';
 const DOWNLOAD_LINKS = {
     mac: [
         {
-            url: 'https://github.com/ShraddhaSurana/dhaani/releases/download/v1.0.1/Dhaani-1.0.1-arm64.dmg',
-            filename: 'Dhaani-1.0.1-arm64.dmg',
+            url: 'https://github.com/ShraddhaSurana/dhaani/releases/download/v1.0.2/Dhaani-1.0.2-arm64.dmg',
+            filename: 'Dhaani-1.0.2-arm64.dmg',
             label: 'Dhaani macOS installer (DMG)'
         },
         {
@@ -238,15 +238,15 @@ const DOWNLOAD_LINKS = {
     ],
     windows: [
         {
-            url: 'https://github.com/ShraddhaSurana/dhaani/releases/download/v1.0.1/Dhaani.Setup.1.0.1.exe',
-            filename: 'Dhaani Setup 1.0.1.exe',
+            url: 'https://github.com/ShraddhaSurana/dhaani/releases/download/v1.0.2/Dhaani.Setup.1.0.2.exe',
+            filename: 'Dhaani Setup 1.0.2.exe',
             label: 'Windows installer'
         }
     ],
     linux: [
         {
-            url: 'https://github.com/ShraddhaSurana/dhaani/releases/download/v1.0.1/Dhaani-1.0.1.AppImage',
-            filename: 'Dhaani-1.0.1.AppImage',
+            url: 'https://github.com/ShraddhaSurana/dhaani/releases/download/v1.0.2/Dhaani-1.0.2.AppImage',
+            filename: 'Dhaani-1.0.2.AppImage',
             label: 'Linux AppImage'
         }
     ]

@@ -1,8 +1,8 @@
 #!/bin/zsh
 set -euo pipefail
 
-readonly DMG_FILENAME="Dhaani-1.0.1-arm64.dmg"
-readonly EXPECTED_DMG_SHA256="f912644c4cd000583c20c50c393725536b700d1501cb8eced9328582e16ba8b5"
+readonly DMG_FILENAME="Dhaani-1.0.2-arm64.dmg"
+readonly EXPECTED_DMG_SHA256="b4938aaf907b32ebc38d6532bdb51b47b5efb0d27740dd6a1a4508c89f016dde"
 readonly EXPECTED_ARCH="arm64"
 readonly DEST_APP="/Applications/Dhaani.app"
 readonly STAGED_APP="/Applications/.Dhaani.install.$$"

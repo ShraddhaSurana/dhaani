@@ -1,9 +1,9 @@
-# Installing Dhaani 1.0.1 on macOS
+# Installing Dhaani 1.0.2 on macOS
 
 This release is for Apple Silicon Macs (M1, M2, M3, M4, or newer). Because it
 is not yet notarized by Apple, use the supplied verified installer helper.
 
-1. Download all three files: `Dhaani-1.0.1-arm64.dmg`,
+1. Download all three files: `Dhaani-1.0.2-arm64.dmg`,
    `Install_Dhaani.command.zip`, and `INSTALL_INSTRUCTIONS.md`.
 2. Keep them in the same folder, such as Downloads, then double-click the ZIP
    to extract `Install_Dhaani.command` beside the DMG.
