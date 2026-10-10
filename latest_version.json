@@ -5,18 +5,18 @@
   "platforms": {
     "mac-arm64": {
       "url": "https://github.com/ShraddhaSurana/dhaani/releases/download/v1.0.2/Dhaani-1.0.2-arm64.dmg",
-      "size": 245693073,
-      "checksum": "sha256:b4938aaf907b32ebc38d6532bdb51b47b5efb0d27740dd6a1a4508c89f016dde"
+      "size": 245693218,
+      "checksum": "sha256:ca322eed8aed66d5ccf50c4f87b8b8fc496826ab4a24b077e93ec9f4d5574701"
     },
     "windows": {
       "url": "https://github.com/ShraddhaSurana/dhaani/releases/download/v1.0.2/Dhaani.Setup.1.0.2.exe",
-      "size": 196750939,
-      "checksum": "sha256:44893d3ce32f858cbd8665afcc87e0a91c7c5f2b38989f3d6ed23066603a7ddb"
+      "size": 196749946,
+      "checksum": "sha256:a4677755aa70d9184013b577058adf13f9d2d3f525bfd5c234be8fb96374ac7a"
     },
     "linux": {
       "url": "https://github.com/ShraddhaSurana/dhaani/releases/download/v1.0.2/Dhaani-1.0.2.AppImage",
-      "size": 266002435,
-      "checksum": "sha256:d8289aea71644e9af320ceda1e984592bd038f03f2cf48879f26d09cc5310ba2"
+      "size": 266026742,
+      "checksum": "sha256:19eaf22ed3e4ea47abe9ac0b76d399cd92cb6a8d0dc6aaa9c1bc1629ef8b005c"
     }
   },
   "minimumVersion": "0.1.0",
